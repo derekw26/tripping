@@ -17,9 +17,8 @@ header {
   /* background-image: url("/images/trains.jpg"); */
   border: 0px;
   margin: 0px;
+  margin-left: 120px;
   padding: 0px;
-  width: fit-content;
-  block-size: fit-content;
   display: grid;
   grid-template-columns: 600px 500px;
   grid-template-rows: auto;
@@ -28,6 +27,7 @@ header {
   "main sidebar";
   grid-gap: 0px 120px;
   min-height: 100vh;
+  width: 0 auto;
 }
 
 
