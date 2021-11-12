@@ -1,0 +1,23 @@
+
+
+.container {
+  background-color: coral;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  width: fit-content;
+  block-size: fit-content;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+
+}
+
+.google-map {
+  margin: 50px
+}
+
+
+.search-delay-filter {
+  margin-top: 50px;
+}
