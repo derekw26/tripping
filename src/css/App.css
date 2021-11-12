@@ -9,7 +9,7 @@
   block-size: fit-content;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
+  min-height: 100vh;
 
 }
 
