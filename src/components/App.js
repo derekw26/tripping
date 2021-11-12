@@ -10,16 +10,23 @@ function App() {
   return (
 
     <div className="container">
-
-
+      <header>
+      <h1>Tripping</h1>
+      </header>
       <div className= 'google-map'>
         <Map />
       </div>
 
       <aside className="search-delay-filter">
+        <div className="sdf-windows">
         <Search />
+        </div>
+        <div className="sdf-windows">
         <Delay />
+        </div>
+        <div className="sdf-windows">
         <Filter />
+        </div>
       </aside>
     </div>
   );
