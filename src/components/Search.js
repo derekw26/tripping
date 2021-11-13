@@ -10,20 +10,26 @@ class Search extends Component {
     super();
     this.state ={
       position: {},
-      vehicle: {},
+
     }
-
+    // this._handleSubmit = this._handleSubmit.bind(this);
   }
 
 
 
-  _handleSubmit(event){
-    event.preventDefault();
-    axios(SERVER_URL).then((response) => {
-      console.log(response.data)
-    });
-
-  }
+  // _handleSubmit(event){
+  //   event.preventDefault();
+  //   axios(SERVER_URL).then((response) => {
+  //   console.log(response.data);
+  //
+  //   const allInfo =response.data;
+  //
+  //   const filteredInfo = allInfo.filter((info) => {
+  //     console.log(info)
+  //   })
+  //   });
+  //
+  // }
 
 
 

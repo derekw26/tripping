@@ -14,7 +14,7 @@ header {
 .container {
   position: relative;
   background-color: rgba(25, 208, 255);
-  /* background-image: url("/images/trains.jpg"); */
+  /* background-image: url("public/images/trains.jpg"); */
   border: 0px;
   margin: 0px;
   margin-left: 120px;
