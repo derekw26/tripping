@@ -13,6 +13,7 @@ function App() {
       <header>
       <h1>Tripping</h1>
       </header>
+      <Tripping />
       <div className= 'google-map'>
         <Map />
       </div>

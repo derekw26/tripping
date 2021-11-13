@@ -1,30 +1,24 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class Tripping extends Component {
+const SERVER_URL = 'https://young-escarpment-93961.herokuapp.com/';
 
+class Tripping extends Component {
 
 
   componentDidMount() {
 
-    let config = {
-      headers: {
-        Accept: 'application/x-google-protobuf',
-        Authorization: 'apikey WNcx5DP0AXfU0B3FZkQxs6FUrpKzAkpZy70C'
-      }
+    const fetchData = () => {
+      axios(SERVER_URL).then((response) => {
+        console.log(response.data);
+        setTimeout(fetchData(), 10000);
+      })
+
     }
 
-    let URL = 'http://api.transport.nsw.gov.au/v1/gtfs/vehiclepos/sydneytrains?debug=true'
+    fetchData();
 
-    axios(
-      URL, config
-
-
-    ).then((response) => {
-      console.log(response)
-    });
-
-  }
+  };
 
 
 
@@ -37,3 +31,6 @@ class Tripping extends Component {
 }
 
 export default Tripping
+
+
+// curl -X GET --header 'Accept: text/plain' --header 'Authorization: apikey 2rZpu5FuWGpahN4FBDm5rz7CFBIddMjeYKwf' 'https://api.transport.nsw.gov.au/v1/gtfs/vehiclepos/nswtrains?debug=true'
