@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
 
-const SERVER_URL = ''
+const SERVER_URL = 'https://young-escarpment-93961.herokuapp.com/'
 
 
 class Search extends Component {
@@ -9,7 +9,8 @@ class Search extends Component {
   constructor() {
     super();
     this.state ={
-
+      position: {},
+      vehicle: {},
     }
 
   }
@@ -17,6 +18,10 @@ class Search extends Component {
 
 
   _handleSubmit(event){
+    event.preventDefault();
+    axios(SERVER_URL).then((response) => {
+      console.log(response.data)
+    });
 
   }
 
@@ -36,7 +41,7 @@ class Search extends Component {
 
       <div className="Search">
         <h1>Search</h1>
-        <form>
+        <form onSubmit={ this._handleSubmit}>
          <input
           type="text"
           name="from"

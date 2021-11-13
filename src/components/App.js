@@ -3,7 +3,7 @@ import Map from './Map'
 import Search from './Search'
 import Filter from './Filter'
 import Delay from './Delay'
-
+import Weather from './Weather'
 import '../css/App.css';
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
     <div className="container">
       <header>
       <h1>Tripping</h1>
+      <Weather />
       </header>
       <div className= 'google-map'>
         <Map />
