@@ -6,8 +6,8 @@ import mapStyles from './mapStyles'
 
 const libraries = ['places']
 const mapContainerStyle = {
-  width: "800px",
-  height: "600px"
+  width: "600px",
+  height: "400px"
 }
 
 const center = {
