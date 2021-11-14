@@ -11,6 +11,8 @@ class Tripping extends Component {
     const fetchData = () => {
       axios(SERVER_URL).then((response) => {
         console.log(response.data);
+        // console.log(response.data);
+
       })
     }
     setInterval(fetchData, 10000);

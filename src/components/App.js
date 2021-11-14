@@ -12,6 +12,7 @@ function App() {
     <div className="container">
       <header>
       <h1>Tripping</h1>
+      <Tripping/>
       <Weather />
       </header>
       <div className= 'google-map'>
