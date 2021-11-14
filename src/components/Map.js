@@ -6,8 +6,8 @@ import mapStyles from './mapStyles'
 
 const libraries = ['places']
 const mapContainerStyle = {
-  width: "100vw",
-  height: "100vh"
+  width: "600px",
+  height: "400px"
 }
 
 const center = {
@@ -16,7 +16,9 @@ const center = {
 }
 
 const options = {
-  styles: mapStyles
+  styles: mapStyles,
+  disableDefaultUI: true,
+  zoomControl: true
 }
 
 
@@ -31,12 +33,14 @@ function Map() {
    if (!isLoaded) return "Loading maps";
 
     return(
+      <div className="map" width="500">
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={8}
+        zoom={12}
         center={center}
         options={options}
       ></GoogleMap>
+      </div>
     );
 }
 
