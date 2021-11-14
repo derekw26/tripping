@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const SERVER_URL = 'http://localhost:4567/';
+const SERVER_URL = 'http://localhost:4567';
 
 class Tripping extends Component {
 

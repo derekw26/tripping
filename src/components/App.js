@@ -15,6 +15,7 @@ function App() {
       <News />
       <h1>Tripping</h1>
       <Weather />
+      <Tripping />
       </header>
       <div className= 'google-map'>
         <Map />
