@@ -4,6 +4,7 @@ import Search from './Search'
 import Filter from './Filter'
 import Delay from './Delay'
 import Weather from './Weather'
+import News from './News'
 import '../css/App.css';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
 
     <div className="container">
       <header>
+      <News />
       <h1>Tripping</h1>
       <Weather />
       </header>
