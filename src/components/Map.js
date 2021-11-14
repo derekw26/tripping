@@ -16,7 +16,9 @@ const center = {
 }
 
 const options = {
-  styles: mapStyles
+  styles: mapStyles,
+  disableDefaultUI: true,
+  zoomControl: true
 }
 
 
@@ -34,7 +36,7 @@ function Map() {
       <div className="map" width="500">
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={8}
+        zoom={12}
         center={center}
         options={options}
       ></GoogleMap>

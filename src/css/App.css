@@ -14,10 +14,11 @@ header {
 .container {
   position: relative;
   background-color: rgba(25, 208, 255);
-  /* background-image: url("public/images/trains.jpg"); */
+  background-image: url("https://infrastructurepipeline.org/files/images/optimised/project_hero/files/images/project/Sydney_Metro_train-60e660f752a36096519538.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   border: 0px;
   margin: 0px;
-  margin-left: 120px;
   padding: 0px;
   display: grid;
   grid-template-columns: 600px 500px;
