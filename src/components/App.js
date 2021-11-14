@@ -13,7 +13,9 @@ function App() {
     <div className="container">
       <header>
       <News />
-      <h1>Tripping</h1>
+      <div className="logo">
+      <img  src="/images/logo.png"  alt="logo" width="100" />
+      </div>
       <Weather />
       <Tripping />
       </header>

@@ -19,7 +19,7 @@ class Tripping extends Component {
 
   render() {
     return (
-      <h1>Yolo</h1>
+      <h1></h1>
     )
   }
 }

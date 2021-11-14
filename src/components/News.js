@@ -35,6 +35,7 @@ class News extends Component {
     }
       return (
         <div className="wrapper">
+
           <div className="mover">
             <div className="item">
               <a href="this.state.news.articles[1].url">
