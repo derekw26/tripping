@@ -1,4 +1,4 @@
-import Tripping from './Tripping'
+// import Tripping from './Tripping'
 import Map from './Map'
 import Search from './Search'
 
@@ -14,12 +14,10 @@ function App() {
     <div className="container">
       <header>
       <News />
-
       <div className="logo">
       <img  src="/images/logo.png"  alt="logo" width="100" />
       <Weather />
       </div>
-      <Tripping />
       </header>
       <div className= 'google-map'>
         <Map />
