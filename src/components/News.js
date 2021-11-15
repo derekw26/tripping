@@ -1,4 +1,4 @@
-// 9dd2e0eeb036423f8ed3f90ae5383eca
+
 import React, { Component } from "react";
 import axios from "axios";
 import '../css/news.css';

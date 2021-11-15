@@ -36,13 +36,13 @@ class Weather extends Component {
       return "";
     }
     return (
-      <div>
-        <h2> {this.state.weatherData.name}</h2>
-        <h3> Currently {Math.round(this.state.weatherData.main.temp)}&deg;C</h3>
-        <img
+      <div className="syd_weather">
+        <p> <img
           src={`http://openweathermap.org/img/w/${this.state.weatherData.weather[0].icon}.png`}
           alt={this.state.weatherData.weather[0].description}
-        />
+        />{this.state.weatherData.name}</p>
+        <h3> Currently {Math.round(this.state.weatherData.main.temp)}&deg;C</h3>
+        
         <h4>
           {this.state.weatherData.weather[0].main}: {this.state.weatherData.weather[0].description}
         </h4>
