@@ -1,9 +1,10 @@
-import Tripping from './Tripping'
+// import Tripping from './Tripping'
 import Map from './Map'
 import Search from './Search'
 import Filter from './Filter'
 import Delay from './Delay'
 import Weather from './Weather'
+import News from './News'
 import '../css/App.css';
 
 function App() {
@@ -11,8 +12,10 @@ function App() {
 
     <div className="container">
       <header>
-      <h1>Tripping</h1>
-      <Tripping />
+      <News />
+      <div className="logo">
+      <img  src="/images/logo.png"  alt="logo" width="100" />
+      </div>
       <Weather />
       </header>
       <div className= 'google-map'>

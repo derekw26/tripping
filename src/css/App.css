@@ -1,4 +1,7 @@
-
+#root {
+display: flex;
+justify-content: center;
+}
 header {
   text-align: center;
   grid-area: header;
@@ -16,7 +19,7 @@ header {
   background-color: rgba(25, 208, 255);
   background-image: url("https://infrastructurepipeline.org/files/images/optimised/project_hero/files/images/project/Sydney_Metro_train-60e660f752a36096519538.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+
   border: 0px;
   margin: 0px;
   padding: 0px;
@@ -34,4 +37,11 @@ header {
 
 .sdf-windows {
   padding: 30px;
+}
+
+.logo {
+  float:left;
+  margin-left: 0px;
+  padding-left: 0px;
+
 }

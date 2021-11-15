@@ -1,12 +1,12 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow, TransitLayer } from '@react-google-maps/api';
-import mapStyles from './mapStyles'
-import TrainMarkers from './TrainMarkers'
+import mapStyles from './mapStyles';
+import TrainMarkers from './TrainMarkers';
 
-const libraries = ['places']
+const libraries = ['places'];
 const mapContainerStyle = {
   width: "600px",
-  height: "400px"
+  height: "600px"
 }
 
 const center = {
@@ -27,8 +27,6 @@ function Map() {
     libraries
   });
 
-  const [markers, setMarkers] = useState([]);
-
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading maps";
 
@@ -43,17 +41,8 @@ function Map() {
         zoom={12}
         center={center}
         options={options}
-        onClick={(event) => {
-          setMarkers(current => [...current,
-            {
-              lat: event.latLng.lat(),
-              lng: event.latLng.lng(),
-              time: new Date()
-            }
-          ]);
-        }}
       >
-        <TrainMarkers/>
+        <TrainMarkers />
         <TransitLayer
           onLoad={onLoad}
         />

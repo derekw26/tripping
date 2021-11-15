@@ -1,0 +1,28 @@
+.wrapper {
+  overflow: hidden;
+  background-color: #eee;
+  width: 100%;
+}
+
+.mover {
+  display: flex;
+}
+
+.item {
+  flex-shrink: 0;
+  width: 70%;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+}
+
+@keyframes tickern {
+  0% { transform: translate3d(100%, 0, 0);}
+  100% { transform: translate3d(-600%, 0, 0);}
+}
+.mover { animation: tickern linear 60s infinite; }
+.mover:hover { animation-play-state: paused;}
+
+a {
+  text-decoration: none;
+ }

@@ -1,25 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-
-const SERVER_URL = 'http://localhost:4567/';
 
 class Tripping extends Component {
-
-
-  componentDidMount() {
-
-    const fetchData = () => {
-      axios(SERVER_URL).then((response) => {
-        console.log(response.data);
-      })
-    }
-    setInterval(fetchData, 10000);
-  };
-
-
   render() {
     return (
-      <h1>Yolo</h1>
+      <h1></h1>
     )
   }
 }
