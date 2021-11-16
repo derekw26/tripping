@@ -46,21 +46,18 @@ class Search extends Component {
     // })
   }
 
-  _viewTrain() {
-
-    console.log(this.state.trains)
-
-
-
+  _viewTrain(event) {
+   event.preventDefault();
+   const trainID = event.target.name;
+   console.log(trainID)
   }
-
 
 
   renderTrain(train) {
     if (train) {
       return (
       <div key= { train.id } >
-        <a style={{color: "black"}} onClick={ this._viewTrain } > from { train.origin } to { train.destination } </a>
+        <a name= { train.id } style={{color: "black"}} onClick={ this._viewTrain } > { train.time } from { train.origin } to { train.destination } </a>
       </div>
       )
     }
