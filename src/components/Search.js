@@ -49,6 +49,7 @@ class Search extends Component {
   _viewTrain(event) {
    event.preventDefault();
    const trainID = event.target.name;
+   this.props.parentCallback(trainID);
    console.log(trainID)
   }
 

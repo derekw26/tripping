@@ -8,18 +8,33 @@ import News from './News'
 import '../css/App.css';
 import axios from 'axios'
 
+<<<<<<< HEAD
+const SERVER_URL = 'http://localhost:4567';
+=======
 const SERVER_URL = 'https://young-escarpment-93961.herokuapp.com/';
+>>>>>>> ca525ff42ec1b695d26c0560af30cca4194e5052
 
 
 class Tripping extends Component {
 
   constructor() {
     super();
-    this.state ={trains: []};
+    this.state = {
+      data: null,
+      trains: []
+    };
+    this.handleCallback = this.handleCallback.bind(this)
   };
 
 
+    handleCallback(childData) {
+      this.setState({data: childData})
+    }
+
   componentDidMount() {
+
+
+
   const fetchTrains = () => {
     axios(SERVER_URL).then((response) => {
       this.setState({trains: response.data});
@@ -35,6 +50,7 @@ class Tripping extends Component {
 
 
   render() {
+    const{data}=this.state;
     return (
       <div className="container">
         <header>
@@ -50,7 +66,8 @@ class Tripping extends Component {
 
         <aside className="search-delay-filter">
           <div className="sdf-windows">
-          <Search trainsToSearch={this.state.trains}/>
+          <Search parentCallback={this.handleCallback} trainsToSearch={this.state.trains}/>
+          {data}
           </div>
           <div className="sdf-windows">
           <Delay />
