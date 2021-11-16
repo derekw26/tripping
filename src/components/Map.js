@@ -17,7 +17,9 @@ const center = {
 const options = {
   styles: mapStyles,
   disableDefaultUI: true,
-  zoomControl: true
+  zoomControl: true,
+  maxZoom: 15,
+  minZoom: 11
 }
 
 const Map = (props) => {
@@ -42,6 +44,8 @@ const Map = (props) => {
     }
     setActiveMarker(marker)
   };
+
+
 
     return(
       <div className="map" width="500">
