@@ -10,14 +10,16 @@ const mapContainerStyle = {
 }
 
 const center = {
-  lat: -33.868820,
-  lng: 151.209290
+  lat: -33.858820,
+  lng: 151.199290
 }
 
 const options = {
   styles: mapStyles,
   disableDefaultUI: true,
-  zoomControl: true
+  zoomControl: true,
+  maxZoom: 15,
+  minZoom: 11
 }
 
 const Map = (props) => {
@@ -42,6 +44,8 @@ const Map = (props) => {
     }
     setActiveMarker(marker)
   };
+
+
 
     return(
       <div className="map" width="500">
