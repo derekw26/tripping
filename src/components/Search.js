@@ -35,8 +35,8 @@ class Search extends Component {
 
       const allTrains = response.data;
       const filteredTrains = allTrains.filter((train) =>{
-        if(train.origin === this.state.origin &&
-          train.destination === this.state.destination) {
+        if(train.origin.includes(this.state.origin)&&
+          train.destination.includes(this.state.destination)) {
             return train;
           }
       })
@@ -57,7 +57,7 @@ class Search extends Component {
   renderTrain(train) {
     if (train) {
       return (
-      <div key= { train.trip_id } >
+      <div key= { train.id } >
         <a style={{color: "black"}} onClick={ this._viewTrain } > from { train.origin } to { train.destination } </a>
       </div>
       )
