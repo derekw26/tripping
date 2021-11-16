@@ -31,17 +31,19 @@ class Search extends Component {
 
   _handleSubmit(event) {
     event.preventDefault();
-    axios(SERVER_URL).then((response)=> {
+    // axios(SERVER_URL).then((response)=> {
 
-      const allTrains = response.data;
-      const filteredTrains = allTrains.filter((train) =>{
-        if(train.origin.includes(this.state.origin) &&
-          train.destination.includes(this.state.destination)) {
-            return train;
-          }
-      })
+      const allTrains = this.props.trainsToSearch     //response.data;
+      // console.log(allTrains);
+     const filteredTrains = allTrains.filter((train) =>{
+           if(train.origin.includes(this.state.origin)&&
+             train.destination.includes(this.state.destination)) {
+               return train;
+             }
+         }
+      )
       this.setState({ trains: filteredTrains})
-    })
+    // })
   }
 
   _viewTrain(event) {
