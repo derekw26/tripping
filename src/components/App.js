@@ -1,7 +1,6 @@
 // import Tripping from './Tripping'
 import Map from './Map'
 import Search from './Search'
-
 import Filter from './Filter'
 import Delay from './Delay'
 import Weather from './Weather'
@@ -9,6 +8,7 @@ import News from './News'
 import '../css/App.css';
 
 function App() {
+
   return (
 
     <div className="container">

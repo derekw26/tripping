@@ -23,7 +23,7 @@ function TrainMarkers() {
   return (
       trains.map((train) => (
       <Marker
-        key={ train.trip_id }
+        key={ train.id }
         position={{lat: train.lat, lng: train.lng}}
         />
     ))
