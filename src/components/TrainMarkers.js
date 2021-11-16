@@ -27,7 +27,7 @@ const TrainMarkers = (props) => {
         }}
         position={{lat: train.lat, lng: train.lng}}
         animation={google.maps.Animation.DROP}
-        onClick={() => _handleActiveMarker(train.id)} //anonymous function: doesn't run on load.
+        onMouseOver={() => _handleActiveMarker(train.id)} //anonymous function: doesn't run on load.
       >
       {props.selectedTrain === train.id ? (
            <InfoWindow position={{lat: train.lat, lng: train.lng}}>
