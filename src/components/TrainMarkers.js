@@ -13,7 +13,7 @@ function TrainMarkers() {
     const interval = setInterval(() => {
       axios(SERVER_URL).then((response) => {
         setTrains(response.data);
-        console.log(trains);
+        // console.log(trains);
       })
     }, 5000);
 

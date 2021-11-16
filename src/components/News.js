@@ -38,42 +38,42 @@ class News extends Component {
 
           <div className="mover">
             <div className="item">
-              <a href="this.state.news.articles[1].url">
+              <a href={ this.state.news.articles[1].url } target="_blank">
               {this.state.news.articles[1].title}
               </a>
             </div>
             <div className="item">
-              <a href="this.state.news.articles[1].url">
+              <a href={ this.state.news.articles[2].url } target="_blank">
               {this.state.news.articles[2].title}
               </a>
             </div>
             <div className="item">
-              <a href="this.state.news.articles[1].url">
+              <a href= { this.state.news.articles[3].url } target="_blank">
               {this.state.news.articles[3].title}
               </a>
             </div>
             <div className="item">
-              <a href="this.state.news.articles[1].url">
+              <a href= { this.state.news.articles[4].url } target="_blank">
               {this.state.news.articles[4].title}
               </a>
             </div>
             <div className="item">
-              <a href="this.state.news.articles[1].url">
+              <a href= { this.state.news.articles[5].url } target="_blank">
               {this.state.news.articles[5].title}
               </a>
             </div>
             <div className="item">
-            <a href="this.state.news.articles[1].url">
+            <a href= { this.state.news.articles[6].url } target="_blank">
             {this.state.news.articles[6].title}
             </a>
             </div>
             <div className="item">
-            <a href="this.state.news.articles[1].url">
+            <a href= { this.state.news.articles[7].url } target="_blank">
             {this.state.news.articles[7].title}
             </a>
             </div>
             <div className="item">
-            <a href="this.state.news.articles[1].url">
+            <a href= { this.state.news.articles[8].url } target="_blank">
             {this.state.news.articles[8].title}
             </a>
             </div>

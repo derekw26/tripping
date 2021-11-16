@@ -31,7 +31,7 @@ function Map() {
   if (!isLoaded) return "Loading maps";
 
   const onLoad = transitLayer => {
-   console.log('transitLayer: ', transitLayer)
+   // console.log('transitLayer: ', transitLayer)
   }
 
     return(
