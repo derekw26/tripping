@@ -14,7 +14,7 @@ class Search extends Component {
     this.state ={
       origin: '' ,
       destination: '',
-      trip_id: '',
+      id: '',
       trains: []
     };
     this._handleChange = this._handleChange.bind(this);
@@ -47,7 +47,7 @@ class Search extends Component {
   _viewTrain() {
 
     console.log(this.state.trains)
-    console.log(this.state.trip_id)
+
 
 
   }
