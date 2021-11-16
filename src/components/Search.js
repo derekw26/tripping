@@ -1,8 +1,11 @@
 import { Component } from 'react';
+import { GoogleMap, useLoadScript, Marker, InfoWindow, TransitLayer } from '@react-google-maps/api';
 import axios from 'axios';
+import '../css/search.css';
+
+
 
 const SERVER_URL = 'http://localhost:4567/'
-
 
 class Search extends Component {
 
@@ -11,10 +14,13 @@ class Search extends Component {
     this.state ={
       origin: '' ,
       destination: '',
+      id: '',
       trains: []
     };
     this._handleChange = this._handleChange.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
+    this.renderTrain = this.renderTrain.bind(this);
+    this._viewTrain = this._viewTrain.bind(this);
   }
 
 
@@ -25,26 +31,37 @@ class Search extends Component {
 
   _handleSubmit(event) {
     event.preventDefault();
-    axios(SERVER_URL).then((response)=> {
+    // axios(SERVER_URL).then((response)=> {
 
-      const allTrains = response.data;
-      const filteredTrains = allTrains.filter((train) =>{
-        if(train.origin === this.state.origin ||
-          train.destination === this.state.destination) {
-            return train;
-          }
-      })
+      const allTrains = this.props.trainsToSearch     //response.data;
+      // console.log(allTrains);
+     const filteredTrains = allTrains.filter((train) =>{
+           if(train.origin.includes(this.state.origin)&&
+             train.destination.includes(this.state.destination)) {
+               return train;
+             }
+         }
+      )
       this.setState({ trains: filteredTrains})
-    })
+    // })
   }
+
+  _viewTrain() {
+
+    console.log(this.state.trains)
+
+
+
+  }
+
+
 
   renderTrain(train) {
     if (train) {
       return (
-      <tr key= { train.trip_id } >
-        <td style={{color: "black"}}>{ train.origin } </td>
-        <td>{ train.destination }</td>
-      </tr>
+      <div key= { train.id } >
+        <a style={{color: "black"}} onClick={ this._viewTrain } > from { train.origin } to { train.destination } </a>
+      </div>
       )
     }
   }
@@ -53,14 +70,25 @@ class Search extends Component {
 
     return (
 
-      <div className="Search">
+      <div className="search">
         <form onSubmit={ this._handleSubmit }>
-         <input
+         <input className="text"
           type="text"
           name="origin"
           onChange={ this._handleChange }
           value={ this.state.origin }
-          placeholder="Search..."
+          placeholder="From"
+          />
+         <input className="text"
+          type="text"
+          name="destination"
+          onChange={ this._handleChange }
+          value={ this.state.destination }
+          placeholder="to"
+          />
+          <input
+            type="submit"
+            value="Search"
           />
         </form>
         <div >

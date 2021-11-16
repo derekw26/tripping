@@ -5,19 +5,8 @@ import axios from 'axios';
 
 const SERVER_URL = 'http://localhost:9292';
 
-function TrainMarkers(props) {
+const TrainMarkers = (props) => {
 
-  const [trains, setTrains] = useState([]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      axios(SERVER_URL).then((response) => {
-        setTrains(response.data);
-      })
-    }, 5000);
-
-    return () => clearInterval(interval);
-  },[trains]);
 
 
   const _handleActiveMarker = (trainID) => {
@@ -28,18 +17,18 @@ function TrainMarkers(props) {
 
 
   return (
-      trains.map((train) => (
+      props.trainsToMarkers.map((train) => (
       <Marker
-        key={ train.trip_id }
+        key={ train.id }
         icon={{
           url: 'https://techstory.in/wp-content/uploads/2018/12/Where-Is-My-Train.png',
           anchor: new google.maps.Point(17, 46),
           scaledSize: new google.maps.Size(37, 37)
         }}
         position={{lat: train.lat, lng: train.lng}}
-        onClick={() => _handleActiveMarker(train.trip_id)} //anonymous function: doesn't run on load.
+        onClick={() => _handleActiveMarker(train.id)} //anonymous function: doesn't run on load.
       >
-      {props.selectedTrain == train.trip_id ? (
+      {props.selectedTrain == train.id ? (
            <InfoWindow position={{lat: train.lat, lng: train.lng}}>
              <div>{train.origin} to {train.destination}</div>
            </InfoWindow>

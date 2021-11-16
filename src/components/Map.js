@@ -20,8 +20,7 @@ const options = {
   zoomControl: true
 }
 
-
-function Map() {
+const Map = (props) => {
 
   const [activeMarker, setActiveMarker] = useState(null);
 
@@ -34,10 +33,8 @@ function Map() {
   if (!isLoaded) return "Loading maps";
 
   const onLoad = transitLayer => {
-   console.log('transitLayer: ', transitLayer)
+   // console.log('transitLayer: ', transitLayer)
   }
-
-
 
   const _handleActiveMarker = (marker) => {
     if (marker === activeMarker) {
@@ -54,7 +51,7 @@ function Map() {
         center={center}
         options={options}
       >
-        <TrainMarkers onSubmit={ _handleActiveMarker } selectedTrain={ activeMarker }/>
+        <TrainMarkers trainsToMarkers={props.trainsToMap} onSubmit={ _handleActiveMarker } selectedTrain={ activeMarker }/>
         <TransitLayer
           onLoad={onLoad}
         />
