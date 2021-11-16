@@ -1,0 +1,9 @@
+.thumbnail:hover {
+    position:relative;
+    top:-270px;
+    left:-130px;
+    width:600px;
+    height:auto;
+    display:block;
+    z-index:999;
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import '../css/filter.css';
 
 class Filter extends Component {
 
@@ -9,7 +9,7 @@ class Filter extends Component {
 
       <div className="Filter">
 
-          <img  src="/images/map.jpeg"  alt="Map" width="300" />
+          <img  src="/images/Sydney_Rail-Metro_Booth.jpeg" className="thumbnail" alt="map" width="300" />
 
       </div>
     );

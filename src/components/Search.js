@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
 
-const SERVER_URL = 'https://young-escarpment-93961.herokuapp.com/'
+const SERVER_URL = 'http://localhost:4567/'
 
 
 class Search extends Component {
@@ -9,61 +9,64 @@ class Search extends Component {
   constructor() {
     super();
     this.state ={
-      position: {},
-
-    }
-    // this._handleSubmit = this._handleSubmit.bind(this);
+      origin: '' ,
+      destination: '',
+      trains: []
+    };
+    this._handleChange = this._handleChange.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
   }
 
 
+  _handleChange(event) {
+    const key = event.target.name;
+    this.setState({[key]: event.target.value});
+  }
 
-  // _handleSubmit(event){
-  //   event.preventDefault();
-  //   axios(SERVER_URL).then((response) => {
-  //   console.log(response.data);
-  //
-  //   const allInfo =response.data;
-  //
-  //   const filteredInfo = allInfo.filter((info) => {
-  //     console.log(info)
-  //   })
-  //   });
-  //
-  // }
+  _handleSubmit(event) {
+    event.preventDefault();
+    // axios(SERVER_URL).then((response)=> {
 
+      const allTrains = this.props.trainsToSearch     //response.data;
+      // console.log(allTrains);
+     const filteredTrains = allTrains.filter((train) =>{
+        if(train.origin === this.state.origin ||
+         train.destination === this.state.destination) {
+           return train;
+         }
+      })
+      this.setState({ trains: filteredTrains})
+    // })
+  }
 
-
-
-
-
-
-
-
-
+  renderTrain(train) {
+    if (train) {
+      return (
+      <tr key= { train.trip_id } >
+        <td style={{color: "black"}}>{ train.origin } </td>
+        <td>{ train.destination }</td>
+      </tr>
+      )
+    }
+  }
 
   render () {
 
     return (
 
       <div className="Search">
-        <h1>Search</h1>
-        <form onSubmit={ this._handleSubmit}>
+        <form onSubmit={ this._handleSubmit }>
          <input
           type="text"
-          name="from"
-          placeholder="Central"
+          name="origin"
+          onChange={ this._handleChange }
+          value={ this.state.origin }
+          placeholder="Search..."
           />
-          <input
-           type="text"
-           name="to"
-           placeholder="Town Hall"
-           />
-          <input
-           type="submit"
-           value="Search"
-           />
         </form>
-
+        <div >
+        { this.state.trains.map(this.renderTrain) }
+        </div>
       </div>
     );
   }
