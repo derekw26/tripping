@@ -41,7 +41,7 @@ class Search extends Component {
   renderTrain(train) {
     if (train) {
       return (
-      <tr key= { train.trip_id } >
+      <tr key= { train.id } >
         <td style={{color: "black"}}>{ train.origin } </td>
         <td>{ train.destination }</td>
       </tr>
