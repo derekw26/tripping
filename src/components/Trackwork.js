@@ -14,7 +14,7 @@ class Trackwork extends Component {
     });
 
     apiCall.get('/gtfs/alerts/trackwork?format=json').then((response) => {
-      console.log(response.data)
+      // console.log(response.data)
     });
 
     }
