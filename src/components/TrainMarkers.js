@@ -3,10 +3,7 @@ import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps
 import axios from 'axios';
 
 
-const SERVER_URL = 'http://localhost:9292';
-
 const TrainMarkers = (props) => {
-
 
 
   const _handleActiveMarker = (trainID) => {
