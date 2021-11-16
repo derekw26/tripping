@@ -20,7 +20,10 @@ const options = {
   zoomControl: true
 }
 
+
 function Map() {
+
+  const [activeMarker, setActiveMarker] = useState(null);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -34,6 +37,15 @@ function Map() {
    console.log('transitLayer: ', transitLayer)
   }
 
+
+
+  const _handleActiveMarker = (marker) => {
+    if (marker === activeMarker) {
+      return;
+    }
+    setActiveMarker(marker)
+  };
+
     return(
       <div className="map" width="500">
       <GoogleMap
@@ -42,7 +54,7 @@ function Map() {
         center={center}
         options={options}
       >
-        <TrainMarkers />
+        <TrainMarkers onSubmit={ _handleActiveMarker } selectedTrain={ activeMarker }/>
         <TransitLayer
           onLoad={onLoad}
         />
