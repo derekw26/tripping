@@ -9,6 +9,7 @@ import '../css/App.css';
 import axios from 'axios'
 
 
+const SERVER_URL = ‘https://young-escarpment-93961.herokuapp.com/’;
 
 class Tripping extends Component {
 
