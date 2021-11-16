@@ -26,9 +26,10 @@ const TrainMarkers = (props) => {
           scaledSize: new google.maps.Size(37, 37)
         }}
         position={{lat: train.lat, lng: train.lng}}
+        animation={google.maps.Animation.DROP}
         onClick={() => _handleActiveMarker(train.id)} //anonymous function: doesn't run on load.
       >
-      {props.selectedTrain == train.id ? (
+      {props.selectedTrain === train.id ? (
            <InfoWindow position={{lat: train.lat, lng: train.lng}}>
              <div>{train.origin} to {train.destination}</div>
            </InfoWindow>
