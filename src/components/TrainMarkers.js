@@ -8,7 +8,6 @@ const SERVER_URL = 'http://localhost:4567';
 const TrainMarkers = (props) => {
 
 
-
   return (
       props.trainsToMarkers.map((train) => (
       <Marker
