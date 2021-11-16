@@ -24,7 +24,7 @@ class Tripping extends Component {
     axios(SERVER_URL).then((response) => {
       this.setState({trains: response.data});
       // console.log(this.state.trains);
-      setTimeout(fetchTrains, 500);
+      setTimeout(fetchTrains, 5000);
     });
 
   };
