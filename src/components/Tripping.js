@@ -8,7 +8,7 @@ import News from './News'
 import '../css/App.css';
 import axios from 'axios'
 
-const SERVER_URL = 'http://localhost:9292';
+const SERVER_URL = 'http://localhost:4567';
 
 
 class Tripping extends Component {
@@ -24,7 +24,7 @@ class Tripping extends Component {
     axios(SERVER_URL).then((response) => {
       this.setState({trains: response.data});
       // console.log(this.state.trains);
-      setTimeout(fetchTrains, 5000);
+      setTimeout(fetchTrains, 1000);
     });
 
   };
