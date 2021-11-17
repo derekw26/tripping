@@ -5,6 +5,8 @@ import Filter from './Filter'
 import Delay from './Delay'
 import Weather from './Weather'
 import News from './News'
+import { StyledEngineProvider } from '@mui/material/styles';
+import TableFromSearch from './TableFromSearch';
 import '../css/App.css';
 import axios from 'axios'
 
@@ -18,7 +20,9 @@ class Tripping extends Component {
   // this.state ={trains: []};
   this.state = {
     selectedTrain: null,
-    trains: []
+    trains: [],
+    origin: null,
+    destination: null
   };
   this.handleCallback = this.handleCallback.bind(this)
 };
@@ -47,7 +51,7 @@ class Tripping extends Component {
 
 
   render() {
-    const{data}=this.state;
+    const{selectedTrain}=this.state;
     return (
       <div className="container">
         <header>
@@ -64,6 +68,10 @@ class Tripping extends Component {
         <aside className="search-delay-filter">
           <div className="sdf-windows">
           <Search parentCallback={this.handleCallback} trainsToSearch={this.state.trains}/>
+          <StyledEngineProvider injectFirst>
+            <TableFromSearch origin={ this.state.origin} destination={ this.state.destination } allTrains={ this.state.trains }/>
+          </StyledEngineProvider>
+         {selectedTrain}
           </div>
           <div className="sdf-windows">
           <Delay />
