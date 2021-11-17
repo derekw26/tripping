@@ -48,7 +48,7 @@ class Tripping extends Component {
 
 
   render() {
-    const{data}=this.state;
+    const{selectedTrain}=this.state;
     return (
       <div className="container">
         <header>
@@ -68,7 +68,7 @@ class Tripping extends Component {
           <StyledEngineProvider injectFirst>
             <TableFromSearch />
           </StyledEngineProvider>
-         {data}
+         {selectedTrain}
           </div>
           <div className="sdf-windows">
           <Delay />
