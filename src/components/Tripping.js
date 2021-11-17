@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
+import { StyledEngineProvider } from '@mui/material/styles';
+import TableFromSearch from './TableFromSearch';
+import '../css/App.css';
+import axios from 'axios'
 import Map from './Map'
 import Search from './Search'
 import Filter from './Filter'
 import Delay from './Delay'
 import Weather from './Weather'
 import News from './News'
-import { StyledEngineProvider } from '@mui/material/styles';
-import TableFromSearch from './TableFromSearch';
-import '../css/App.css';
-import axios from 'axios'
-
 
 const SERVER_URL = 'https://young-escarpment-93961.herokuapp.com/';
 
 class Tripping extends Component {
 
   constructor() {
-  super();
-  // this.state ={trains: []};
-  this.state = {
-    selectedTrain: null,
-    trains: [],
-    origin: null,
-    destination: null
+    super();
+
+    this.state = {
+      selectedTrain: null,
+      trains: [],
+      origin: null,
+      destination: null
+    };
+
+    this.handleCallback = this.handleCallback.bind(this)
   };
-  this.handleCallback = this.handleCallback.bind(this)
-};
 
 
   handleCallback(trainID, origin, destination) {
@@ -35,17 +35,16 @@ class Tripping extends Component {
 
   componentDidMount() {
 
-  const fetchTrains = () => {
-    axios(SERVER_URL).then((response) => {
-      this.setState({trains: response.data});
-      console.log(this.state.trains);
-      setTimeout(fetchTrains, 4000);
-    });
-  };
+    const fetchTrains = () => {
+      axios(SERVER_URL).then((response) => {
+        this.setState({trains: response.data});
+        // console.log(this.state.trains);
+        setTimeout(fetchTrains, 4000);
+      });
+    };
 
-  fetchTrains();
-}
-
+    fetchTrains();
+  }
 
 
   render() {
@@ -60,13 +59,13 @@ class Tripping extends Component {
           <Weather />
         </header>
         <div className= 'google-map'>
-          <Map trainsToMap={this.state.trains} selectedTrain={this.state.selectedTrain} />
+          <Map trainsToMap={ this.state.trains } selectedTrain={ this.state.selectedTrain } />
         </div>
         <aside className="search-delay-filter">
           <div className="sdf-windows">
-          <Search parentCallback={this.handleCallback} trainsToSearch={this.state.trains}/>
+          <Search parentCallback={ this.handleCallback } trainsToSearch={ this.state.trains }/>
           <StyledEngineProvider injectFirst>
-            <TableFromSearch origin={ this.state.origin} destination={ this.state.destination } allTrains={ this.state.trains }/>
+            <TableFromSearch origin={ this.state.origin } destination={ this.state.destination } allTrains={ this.state.trains }/>
           </StyledEngineProvider>
          {selectedTrain}
           </div>
@@ -74,7 +73,7 @@ class Tripping extends Component {
             <Delay />
           </div>
           <div className="sdf-windows">
-            <Filter />
+            <Filter trainsToFilter={ this.state.trains }/>
           </div>
         </aside>
       </div>
