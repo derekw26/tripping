@@ -1,14 +1,38 @@
 #root {
 display: flex;
-justify-content: center;
+/* justify-content: center; */
 }
+
 header {
   text-align: center;
   grid-area: header;
 }
+/* main heading on the homepage */
+.mainheading {
+  background-color: #EFEFEF;
+  color: darkblue;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.horizontalline {
+  width: 100%;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  padding-top: 5px;
+  background-color: darkblue;
+}
+
+.instructions {
+  margin-left: 50px;
+  float: left;
+}
+
 .google-map {
-  grid-area: main;
-  margin: 50px;
+  /* grid-area: main; */
+  margin-bottom: 30px;
 }
 .search-delay-filter {
   grid-area: sidebar;
@@ -16,33 +40,25 @@ header {
 
 .container {
   position: relative;
-  background-color: rgba(25, 208, 255);
-  background-image: url("https://infrastructurepipeline.org/files/images/optimised/project_hero/files/images/project/Sydney_Metro_train-60e660f752a36096519538.jpg");
+  background-color: white;
+  /* background-image: url("https://media-exp1.licdn.com/dms/image/C4E1BAQHyPR5XH6N6fQ/company-background_10000/0/1609449609441?e=2159024400&v=beta&t=JwC2QOKmFs2p6aNDGI9SnJhp9NucMwTkV94luVcg9qs"); */
   background-repeat: no-repeat;
 
   border: 0px;
   margin: 0px;
   padding: 0px;
-  display: grid;
-  grid-template-columns: 600px 500px;
+  /* display: grid; */
+  /* grid-template-columns: 600px 500px; */
   grid-template-rows: auto;
   grid-template-areas:
   "header header"
   "main sidebar";
-  grid-gap: 0px 120px;
-  min-height: 100vh;
+  /* grid-gap: 0px 120px; */
+  /* min-height: 100vh; */
   width: 0 auto;
 }
 
 
 .sdf-windows {
-  padding: 30px;
-}
-
-.logo {
-  float:left;
-  margin-left: 0px;
-  padding-left: 0px;
-  background-color: black;
-
+  padding: 0px;
 }

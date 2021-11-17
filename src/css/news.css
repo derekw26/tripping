@@ -1,6 +1,6 @@
 .wrapper {
   overflow: hidden;
-  background-color: #eee;
+  background-color: black;
   width: 100%;
 }
 
@@ -12,7 +12,7 @@
   flex-shrink: 0;
   width: 70%;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 0px;
   text-align: center;
 }
 
@@ -25,4 +25,5 @@
 
 a {
   text-decoration: none;
+  color: white;
  }

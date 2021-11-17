@@ -4,11 +4,14 @@ import Search from './Search'
 import Filter from './Filter'
 import Delay from './Delay'
 import Weather from './Weather'
+import Footer from './Footer'
 import News from './News'
 import { StyledEngineProvider } from '@mui/material/styles';
 import TableFromSearch from './TableFromSearch';
 import '../css/App.css';
+import '../css/Map.css';
 import axios from 'axios'
+
 
 
 const SERVER_URL = 'https://young-escarpment-93961.herokuapp.com/';
@@ -16,16 +19,17 @@ const SERVER_URL = 'https://young-escarpment-93961.herokuapp.com/';
 class Tripping extends Component {
 
   constructor() {
-  super();
-  // this.state ={trains: []};
-  this.state = {
-    selectedTrain: null,
-    trains: [],
-    origin: null,
-    destination: null
+    super();
+
+    this.state = {
+      selectedTrain: null,
+      trains: [],
+      origin: null,
+      destination: null
+    };
+
+    this.handleCallback = this.handleCallback.bind(this)
   };
-  this.handleCallback = this.handleCallback.bind(this)
-};
 
 
   handleCallback(childData) {
@@ -34,20 +38,18 @@ class Tripping extends Component {
     console.log(this.state.filteredTrains);
   }
 
-
   componentDidMount() {
-  const fetchTrains = () => {
-    axios(SERVER_URL).then((response) => {
-      this.setState({trains: response.data});
-      // console.log(this.state.trains);
-      setTimeout(fetchTrains, 200);
-    });
 
-  };
+    const fetchTrains = () => {
+      axios(SERVER_URL).then((response) => {
+        this.setState({trains: response.data});
+        // console.log(this.state.trains);
+        setTimeout(fetchTrains, 4000);
+      });
+    };
 
-  fetchTrains();
-}
-
+    fetchTrains();
+  }
 
 
   render() {
@@ -56,33 +58,36 @@ class Tripping extends Component {
       <div className="container">
         <header>
         <News />
-        <div className="logo">
-        <img  src="/images/logo.png"  alt="logo" width="100" />
+        <h1 class="mainheading">Transport NSW Open Data - Realtime Dashboard</h1>
+        <h4 class="instructions">Instructions:</h4>
         <Weather />
-        </div>
         </header>
+        <hr class="horizontalline"></hr>
         <div className= 'google-map'>
-          <Map trainsToMap={this.state.trains} selectedTrain={this.state.selectedTrain} />
+          <Map trainsToMap={ this.state.trains } selectedTrain={ this.state.selectedTrain } />
         </div>
+        <hr class="horizontalline"></hr>
 
         <aside className="search-delay-filter">
           <div className="sdf-windows">
-          <Search parentCallback={this.handleCallback} trainsToSearch={this.state.trains}/>
+          <Search parentCallback={ this.handleCallback } trainsToSearch={ this.state.trains }/>
           <StyledEngineProvider injectFirst>
-            <TableFromSearch origin={ this.state.origin} destination={ this.state.destination } allTrains={ this.state.trains }/>
+            <TableFromSearch origin={ this.state.origin } destination={ this.state.destination } allTrains={ this.state.trains }/>
           </StyledEngineProvider>
          {selectedTrain}
           </div>
           <div className="sdf-windows">
-          <Delay />
+            <Filter trainsToFilter={ this.state.trains }/>
           </div>
           <div className="sdf-windows">
-          <Filter />
+
           </div>
+          <Footer/>
         </aside>
       </div>
     )
   }
 }
 
+//  <Delay /> <Filter />
 export default Tripping;

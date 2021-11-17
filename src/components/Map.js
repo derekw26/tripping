@@ -6,13 +6,13 @@ import TrainMarkerSelected from './TrainMarkerSelected';
 
 const libraries = ['places'];
 const mapContainerStyle = {
-  width: "600px",
+  width: "100%",
   height: "600px"
 }
 
 const center = {
   lat: -33.858820,
-  lng: 151.199290
+  lng: 151.059290
 }
 
 const options = {
@@ -20,7 +20,8 @@ const options = {
   disableDefaultUI: true,
   zoomControl: true,
   maxZoom: 15,
-  minZoom: 11
+  minZoom: 11,
+  gestureHandling: 'greedy'
 }
 
 const Map = (props) => {
@@ -67,23 +68,21 @@ const Map = (props) => {
   });
 
     return(
-      <div className="map" width="500">
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        zoom={12}
-        center={center}
-        options={options}
-      >
+        <GoogleMap
+          mapContainerStyle={mapContainerStyle}
+          zoom={11}
+          center={center}
+          options={options}
+        >
 
-        <TrainMarkers trainsToMarkers={spareTrains} onSubmit={ _handleActiveMarker } selectedTrain={ activeMarker }/>
+          <TrainMarkers trainsToMarkers={spareTrains} onSubmit={ _handleActiveMarker } selectedTrain={ activeMarker }/>
 
-        <TrainMarkerSelected trainsToMarkers={selectedTrain} onSubmit={ _handleActiveMarkers } selectedTrain={ activeMarkers }/>
+          <TrainMarkerSelected trainsToMarkers={selectedTrain} onSubmit={ _handleActiveMarkers } selectedTrain={ activeMarkers }/>
 
-        <TransitLayer
-          onLoad={onLoad}
-        />
-      </GoogleMap>
-      </div>
+          <TransitLayer
+            onLoad={onLoad}
+          />
+        </GoogleMap>
     );
 }
 

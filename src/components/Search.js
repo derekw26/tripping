@@ -44,26 +44,18 @@ class Search extends Component {
   }
 
   _viewTrain(event) {
-<<<<<<< HEAD
    event.preventDefault();
-   this.props.parentCallback(event.target.id, this.state.trains);
-=======
-    event.preventDefault();
-    const trainID = event.target.id;
-    const trainOrigin= this.state.origin;
-    const trainDestination = this.state.destination;
-    this.props.parentCallback(trainID, trainOrigin, trainDestination);
->>>>>>> ccd858a90acd234192077fa45912995410df4a95
+   this.props.parentCallback(event.target.id);
 
   }
+
 
   renderTrain(train) {
     if (train) {
       return (
       <div key= { train.id } >
-      <a id = { train.id } style={{color: "black"}} onClick={ this._viewTrain } > { train.time } from { train.origin } to { train.destination } </a>
+        <a id={train.id} style={{color: "black"}} onClick={ this._viewTrain } > { train.time } from { train.origin } to { train.destination } </a>
       </div>
-
       )
     }
   }
@@ -93,8 +85,8 @@ class Search extends Component {
             value="Search"
           />
         </form>
-        
         <div >
+          <Table/>
         { this.state.trains.map(this.renderTrain) }
         </div>
       </div>

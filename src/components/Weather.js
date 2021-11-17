@@ -42,7 +42,7 @@ class Weather extends Component {
           alt={this.state.weatherData.weather[0].description}
         />{this.state.weatherData.name}</p>
         <h3> Currently {Math.round(this.state.weatherData.main.temp)}&deg;C</h3>
-        
+
         <h4>
           {this.state.weatherData.weather[0].main}: {this.state.weatherData.weather[0].description}
         </h4>
