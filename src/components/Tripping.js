@@ -5,48 +5,49 @@ import Filter from './Filter'
 import Delay from './Delay'
 import Weather from './Weather'
 import News from './News'
+import { StyledEngineProvider } from '@mui/material/styles';
+import TableFromSearch from './TableFromSearch';
 import '../css/App.css';
 import axios from 'axios'
 
 
-const SERVER_URL = 'http://localhost:4567/';
-const TEST_URL = 'http://localhost:4567/updates';
+const SERVER_URL = 'https://young-escarpment-93961.herokuapp.com/';
 
 class Tripping extends Component {
 
   constructor() {
-    super();
-    this.state = {
-      trains: [],
-      trips: [],
-    };
+  super();
+  // this.state ={trains: []};
+  this.state = {
+    selectedTrain: null,
+    trains: []
   };
+  this.handleCallback = this.handleCallback.bind(this)
+};
+
+
+  handleCallback(childData) {
+    this.setState({selectedTrain: childData})
+    // console.log("THIS IS PRINTING THE TRIPPING COMPONENT" + this.state.selectedTrain);
+  }
 
   componentDidMount() {
-
-  const fetchTrips = () => {
-    axios(TEST_URL).then((response) => {
-      this.setState({trips: response.data});
-      // console.log(this.state.trips);
-      setTimeout(fetchTrips, 1000);
-    });
-  };
 
   const fetchTrains = () => {
     axios(SERVER_URL).then((response) => {
       this.setState({trains: response.data});
-      console.log(this.state.trains);
-      setTimeout(fetchTrains, 5000);
+      // console.log(this.state.trains);
+      setTimeout(fetchTrains, 200);
     });
   };
 
-  fetchTrips();
   fetchTrains();
 }
 
 
 
   render() {
+    const{selectedTrain}=this.state;
     return (
       <div className="container">
         <header>
@@ -57,11 +58,13 @@ class Tripping extends Component {
           <Weather />
         </header>
         <div className= 'google-map'>
-          <Map trainsToMap={this.state.trains}/>
+          <Map trainsToMap={this.state.trains} selectedTrain={this.state.selectedTrain} />
         </div>
         <aside className="search-delay-filter">
           <div className="sdf-windows">
-            <Search trainsToSearch={this.state.trains}/>
+          <Search parentCallback={this.handleCallback} trainsToSearch={this.state.trains}/>
+
+         {selectedTrain}
           </div>
           <div className="sdf-windows">
             <Delay />

@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow, TransitLayer } from '@react-google-maps/api';
 import mapStyles from './mapStyles';
 import TrainMarkers from './TrainMarkers';
+import TrainMarkerSelected from './TrainMarkerSelected';
 
 const libraries = ['places'];
 const mapContainerStyle = {
@@ -25,6 +26,7 @@ const options = {
 const Map = (props) => {
 
   const [activeMarker, setActiveMarker] = useState(null);
+  const [activeMarkers, setActiveMarkers] = useState(null);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -45,7 +47,24 @@ const Map = (props) => {
     setActiveMarker(marker)
   };
 
+  const _handleActiveMarkers = (marker) => {
+    if (marker === activeMarkers) {
+      return;
+    }
+    setActiveMarkers(marker)
+  };
 
+  const selectedTrain = props.trainsToMap.filter((t) => {
+    if(t.id == props.selectedTrain) {
+      return t;
+    }
+  });
+
+  const spareTrains = props.trainsToMap.filter((t) => {
+    if(t.id !== props.selectedTrain) {
+      return t;
+    }
+  });
 
     return(
       <div className="map" width="500">
@@ -55,7 +74,11 @@ const Map = (props) => {
         center={center}
         options={options}
       >
-        <TrainMarkers trainsToMarkers={props.trainsToMap} onSubmit={ _handleActiveMarker } selectedTrain={ activeMarker }/>
+
+        <TrainMarkers trainsToMarkers={spareTrains} onSubmit={ _handleActiveMarker } selectedTrain={ activeMarker }/>
+
+        <TrainMarkerSelected trainsToMarkers={selectedTrain} onSubmit={ _handleActiveMarkers } selectedTrain={ activeMarkers }/>
+
         <TransitLayer
           onLoad={onLoad}
         />
@@ -63,5 +86,11 @@ const Map = (props) => {
       </div>
     );
 }
+
+
+
+
+
+
 
 export default Map;

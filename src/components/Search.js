@@ -4,9 +4,6 @@ import axios from 'axios';
 import '../css/search.css';
 
 
-
-const SERVER_URL = 'http://localhost:4567/'
-
 class Search extends Component {
 
   constructor() {
@@ -15,7 +12,7 @@ class Search extends Component {
       origin: '' ,
       destination: '',
       id: '',
-      trains: []
+      trains: [],
     };
     this._handleChange = this._handleChange.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
@@ -47,10 +44,10 @@ class Search extends Component {
   }
 
   _viewTrain(event) {
-   event.preventDefault();
-   const trainID = event.target.name;
-   this.props.parentCallback(trainID);
-   console.log(trainID)
+    event.preventDefault();
+    const trainID = event.target.name;
+    this.props.parentCallback(trainID);
+
   }
 
 
@@ -58,8 +55,9 @@ class Search extends Component {
     if (train) {
       return (
       <div key= { train.id } >
-        <a name= { train.id } style={{color: "black"}} onClick={ this._viewTrain } > { train.time } from { train.origin } to { train.destination } </a>
+      <a name= { train.id } style={{color: "black"}} onClick={ this._viewTrain } > { train.time } from { train.origin } to { train.destination } </a>
       </div>
+
       )
     }
   }
