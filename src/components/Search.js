@@ -12,7 +12,7 @@ class Search extends Component {
       origin: '' ,
       destination: '',
       id: '',
-      trains: []
+      trains: [],
     };
     this._handleChange = this._handleChange.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
@@ -45,8 +45,7 @@ class Search extends Component {
 
   _viewTrain(event) {
    event.preventDefault();
-   const trainID = event.target.name;
-   this.props.parentCallback(trainID);
+   this.props.parentCallback(event.target.id);
 
   }
 

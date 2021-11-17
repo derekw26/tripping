@@ -17,9 +17,9 @@ class Tripping extends Component {
 
   constructor() {
   super();
-  this.state ={trains: []};
+  // this.state ={trains: []};
   this.state = {
-    data: null,
+    selectedTrain: null,
     trains: []
   };
   this.handleCallback = this.handleCallback.bind(this)
@@ -27,7 +27,8 @@ class Tripping extends Component {
 
 
   handleCallback(childData) {
-    this.setState({data: childData})
+    this.setState({selectedTrain: childData})
+    // console.log("THIS IS PRINTING THE TRIPPING COMPONENT" + this.state.selectedTrain);
   }
 
 
@@ -36,7 +37,7 @@ class Tripping extends Component {
     axios(SERVER_URL).then((response) => {
       this.setState({trains: response.data});
       // console.log(this.state.trains);
-      setTimeout(fetchTrains, 1000);
+      setTimeout(fetchTrains, 200);
     });
 
   };
@@ -58,7 +59,7 @@ class Tripping extends Component {
         </div>
         </header>
         <div className= 'google-map'>
-          <Map trainsToMap={this.state.trains}/>
+          <Map trainsToMap={this.state.trains} selectedTrain={this.state.selectedTrain} />
         </div>
 
         <aside className="search-delay-filter">
