@@ -20,15 +20,17 @@ class Tripping extends Component {
   // this.state ={trains: []};
   this.state = {
     selectedTrain: null,
-    trains: []
+    trains: [],
+    origin: null,
+    destination: null
   };
   this.handleCallback = this.handleCallback.bind(this)
 };
 
 
-  handleCallback(childData) {
-    this.setState({selectedTrain: childData})
-    // console.log("THIS IS PRINTING THE TRIPPING COMPONENT" + this.state.selectedTrain);
+  handleCallback(trainID, origin, destination) {
+    this.setState({selectedTrain: trainID, origin: origin, destination: destination})
+     // console.log("THIS IS PRINTING THE TRIPPING COMPONENT" + this.state.selectedTrain, this.state.origin, this.state.destination);
   }
 
   componentDidMount() {
@@ -36,8 +38,8 @@ class Tripping extends Component {
   const fetchTrains = () => {
     axios(SERVER_URL).then((response) => {
       this.setState({trains: response.data});
-      // console.log(this.state.trains);
-      setTimeout(fetchTrains, 200);
+      console.log(this.state.trains);
+      setTimeout(fetchTrains, 4000);
     });
   };
 
@@ -63,7 +65,9 @@ class Tripping extends Component {
         <aside className="search-delay-filter">
           <div className="sdf-windows">
           <Search parentCallback={this.handleCallback} trainsToSearch={this.state.trains}/>
-
+          <StyledEngineProvider injectFirst>
+            <TableFromSearch origin={ this.state.origin} destination={ this.state.destination } allTrains={ this.state.trains }/>
+          </StyledEngineProvider>
          {selectedTrain}
           </div>
           <div className="sdf-windows">
