@@ -8,7 +8,7 @@ import News from './News'
 import '../css/App.css';
 import axios from 'axios'
 
-const SERVER_URL = 'http://localhost:9292';
+const SERVER_URL = 'http://localhost:4567';
 
 
 class Tripping extends Component {
@@ -38,25 +38,24 @@ class Tripping extends Component {
     return (
       <div className="container">
         <header>
-        <News />
-        <div className="logo">
-        <img  src="/images/logo.png"  alt="logo" width="100" />
-        <Weather />
-        </div>
+          <News />
+          <div className="logo">
+            <img  src="/images/logo.png"  alt="logo" width="100" />
+          </div>
+          <Weather />
         </header>
         <div className= 'google-map'>
           <Map trainsToMap={this.state.trains}/>
         </div>
-
         <aside className="search-delay-filter">
           <div className="sdf-windows">
-          <Search trainsToSearch={this.state.trains}/>
+            <Search trainsToSearch={this.state.trains}/>
           </div>
           <div className="sdf-windows">
-          <Delay />
+            <Delay />
           </div>
           <div className="sdf-windows">
-          <Filter />
+            <Filter />
           </div>
         </aside>
       </div>
