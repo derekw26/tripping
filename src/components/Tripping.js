@@ -5,6 +5,8 @@ import Filter from './Filter'
 import Delay from './Delay'
 import Weather from './Weather'
 import News from './News'
+import { StyledEngineProvider } from '@mui/material/styles';
+import TableFromSearch from './TableFromSearch';
 import '../css/App.css';
 import axios from 'axios'
 
@@ -62,6 +64,9 @@ class Tripping extends Component {
         <aside className="search-delay-filter">
           <div className="sdf-windows">
           <Search parentCallback={this.handleCallback} trainsToSearch={this.state.trains}/>
+          <StyledEngineProvider injectFirst>
+            <TableFromSearch />
+          </StyledEngineProvider>
          {data}
           </div>
           <div className="sdf-windows">

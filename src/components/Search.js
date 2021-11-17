@@ -47,7 +47,7 @@ class Search extends Component {
    event.preventDefault();
    const trainID = event.target.name;
    this.props.parentCallback(trainID);
-   
+
   }
 
 
@@ -55,8 +55,9 @@ class Search extends Component {
     if (train) {
       return (
       <div key= { train.id } >
-        <a name= { train.id } style={{color: "black"}} onClick={ this._viewTrain } > { train.time } from { train.origin } to { train.destination } </a>
+      <a name= { train.id } style={{color: "black"}} onClick={ this._viewTrain } > { train.time } from { train.origin } to { train.destination } </a>
       </div>
+
       )
     }
   }
