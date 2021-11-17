@@ -3,10 +3,7 @@ import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps
 import axios from 'axios';
 
 
-const SERVER_URL = 'http://localhost:4567';
-
 const TrainMarkers = (props) => {
-
 
 
   const _handleActiveMarker = (trainID) => {
@@ -27,11 +24,11 @@ const TrainMarkers = (props) => {
         }}
         position={{lat: train.lat, lng: train.lng}}
         animation={google.maps.Animation.DROP}
-        onClick={() => _handleActiveMarker(train.id)} //anonymous function: doesn't run on load.
+        onMouseOver={() => _handleActiveMarker(train.id)} //anonymous function: doesn't run on load.
       >
       {props.selectedTrain === train.id ? (
            <InfoWindow position={{lat: train.lat, lng: train.lng}}>
-             <div>{train.origin} to {train.destination}</div>
+             <div>{train.time} - {train.origin} to {train.destination}</div>
            </InfoWindow>
          ) : null}
 

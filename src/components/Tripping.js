@@ -8,27 +8,39 @@ import News from './News'
 import '../css/App.css';
 import axios from 'axios'
 
-const SERVER_URL = 'http://localhost:4567';
 
+const SERVER_URL = 'http://localhost:4567/';
+const TEST_URL = 'http://localhost:4567/updates';
 
 class Tripping extends Component {
 
   constructor() {
     super();
-    this.state ={trains: []};
+    this.state = {
+      trains: [],
+      trips: [],
+    };
   };
 
-
   componentDidMount() {
+
+  const fetchTrips = () => {
+    axios(TEST_URL).then((response) => {
+      this.setState({trips: response.data});
+      // console.log(this.state.trips);
+      setTimeout(fetchTrips, 1000);
+    });
+  };
+
   const fetchTrains = () => {
     axios(SERVER_URL).then((response) => {
       this.setState({trains: response.data});
-      // console.log(this.state.trains);
+      console.log(this.state.trains);
       setTimeout(fetchTrains, 5000);
     });
-
   };
 
+  fetchTrips();
   fetchTrains();
 }
 
