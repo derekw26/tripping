@@ -12,7 +12,7 @@ class Search extends Component {
       origin: '' ,
       destination: '',
       id: '',
-      trains: []
+      trains: [],
     };
     this._handleChange = this._handleChange.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
@@ -45,9 +45,16 @@ class Search extends Component {
 
   _viewTrain(event) {
    event.preventDefault();
-   const trainID = event.target.name;
-   this.props.parentCallback(trainID);
-   
+   // console.log(train);
+   // const allTrains = this.props.trainsToSearch
+   // console.log(allTrains);
+   //
+   // const trainObject = allTrains.filter((train) => {
+   //   return train.id === trainID
+   // })
+   // console.log(trainID);
+   this.props.parentCallback(event.target.id);
+
   }
 
 
@@ -55,7 +62,7 @@ class Search extends Component {
     if (train) {
       return (
       <div key= { train.id } >
-        <a name= { train.id } style={{color: "black"}} onClick={ this._viewTrain } > { train.time } from { train.origin } to { train.destination } </a>
+        <a id={train.id} style={{color: "black"}} onClick={ this._viewTrain } > { train.time } from { train.origin } to { train.destination } </a>
       </div>
       )
     }

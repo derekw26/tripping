@@ -45,7 +45,17 @@ const Map = (props) => {
     setActiveMarker(marker)
   };
 
+  const selectedtrain = props.trainsToMap.filter((t) => {
+    if(t.id == props.selectedTrain) {
+      return t;
+    }
+  });
 
+  const spareTrains = props.trainsToMap.filter((t) => {
+    if(t.id !== props.selectedTrain) {
+      return t;
+    }
+  });
 
     return(
       <div className="map" width="500">
@@ -55,7 +65,7 @@ const Map = (props) => {
         center={center}
         options={options}
       >
-        <TrainMarkers trainsToMarkers={props.trainsToMap} onSubmit={ _handleActiveMarker } selectedTrain={ activeMarker }/>
+        <TrainMarkers trainsToMarkers={spareTrains}  onSubmit={ _handleActiveMarker } />
         <TransitLayer
           onLoad={onLoad}
         />
