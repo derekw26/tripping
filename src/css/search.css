@@ -1,3 +1,15 @@
+.searchform {
+  margin: auto;
+  display: block;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+input {
+  margin-right: 10px;
+  /* margin-bottom: 10px; */
+}
+
 .text {
   width: 20ch;
   font-family: monospace;

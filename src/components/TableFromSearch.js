@@ -11,7 +11,8 @@ const styles = (theme) => ({
   flexContainer: {
     display: "flex",
     alignItems: "center",
-    boxSizing: "border-box"
+    boxSizing: "border-box",
+    justifyContent: "center"
   },
   table: {
     // temporary right-to-left patch, waiting for
@@ -183,7 +184,7 @@ for (let i = 0; i < 10; i += 1) {
 
 export default function ReactVirtualizedTable() {
   return (
-    <Paper style={{ height: 400, width: "80%" }}>
+    <Paper style={{ height: 500, width: "100%" }}>
       <VirtualizedTable
         rowCount={rows.length}
         rowGetter={({ index }) => rows[index]}

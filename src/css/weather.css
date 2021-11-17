@@ -1,4 +1,9 @@
 .syd_weather {
-  display: inline-block;
-  
+  width: 200px;;
+  background-color: #E3E8FF;
+  float: right;
+  margin-right: 40px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
