@@ -27,6 +27,7 @@ class Tripping extends Component {
   handleCallback(childData) {
     this.setState({selectedTrain: childData})
     // console.log("THIS IS PRINTING THE TRIPPING COMPONENT" + this.state.selectedTrain);
+    console.log(this.state.filteredTrains);
   }
 
 

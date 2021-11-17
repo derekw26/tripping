@@ -45,15 +45,7 @@ class Search extends Component {
 
   _viewTrain(event) {
    event.preventDefault();
-   // console.log(train);
-   // const allTrains = this.props.trainsToSearch
-   // console.log(allTrains);
-   //
-   // const trainObject = allTrains.filter((train) => {
-   //   return train.id === trainID
-   // })
-   // console.log(trainID);
-   this.props.parentCallback(event.target.id);
+   this.props.parentCallback(event.target.id, this.state.trains);
 
   }
 
