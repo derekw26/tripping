@@ -45,17 +45,18 @@ class Search extends Component {
 
   _viewTrain(event) {
     event.preventDefault();
-    const trainID = event.target.name;
-    this.props.parentCallback(trainID);
+    const trainID = event.target.id;
+    const trainOrigin= this.state.origin;
+    const trainDestination = this.state.destination;
+    this.props.parentCallback(trainID, trainOrigin, trainDestination);
 
   }
-
 
   renderTrain(train) {
     if (train) {
       return (
       <div key= { train.id } >
-      <a name= { train.id } style={{color: "black"}} onClick={ this._viewTrain } > { train.time } from { train.origin } to { train.destination } </a>
+      <a id = { train.id } style={{color: "black"}} onClick={ this._viewTrain } > { train.time } from { train.origin } to { train.destination } </a>
       </div>
 
       )
@@ -87,6 +88,7 @@ class Search extends Component {
             value="Search"
           />
         </form>
+        
         <div >
         { this.state.trains.map(this.renderTrain) }
         </div>
