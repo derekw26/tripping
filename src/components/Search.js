@@ -4,9 +4,6 @@ import axios from 'axios';
 import '../css/search.css';
 
 
-
-const SERVER_URL = 'http://localhost:4567/'
-
 class Search extends Component {
 
   constructor() {
@@ -50,7 +47,7 @@ class Search extends Component {
    event.preventDefault();
    const trainID = event.target.name;
    this.props.parentCallback(trainID);
-   console.log(trainID)
+   
   }
 
 
