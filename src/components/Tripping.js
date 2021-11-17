@@ -8,15 +8,26 @@ import News from './News'
 import '../css/App.css';
 import axios from 'axios'
 
-const SERVER_URL = 'https://young-escarpment-93961.herokuapp.com/';
 
+const SERVER_URL = 'https://young-escarpment-93961.herokuapp.com/';
 
 class Tripping extends Component {
 
   constructor() {
-    super();
-    this.state ={trains: []};
+  super();
+  // this.state ={trains: []};
+  this.state = {
+    selectedTrain: null,
+    trains: []
   };
+  this.handleCallback = this.handleCallback.bind(this)
+};
+
+
+  handleCallback(childData) {
+    this.setState({selectedTrain: childData})
+    // console.log("THIS IS PRINTING THE TRIPPING COMPONENT" + this.state.selectedTrain);
+  }
 
 
   componentDidMount() {
@@ -24,7 +35,7 @@ class Tripping extends Component {
     axios(SERVER_URL).then((response) => {
       this.setState({trains: response.data});
       // console.log(this.state.trains);
-      setTimeout(fetchTrains, 500);
+      setTimeout(fetchTrains, 200);
     });
 
   };
@@ -35,6 +46,7 @@ class Tripping extends Component {
 
 
   render() {
+    const{data}=this.state;
     return (
       <div className="container">
         <header>
@@ -45,12 +57,12 @@ class Tripping extends Component {
         </div>
         </header>
         <div className= 'google-map'>
-          <Map trainsToMap={this.state.trains}/>
+          <Map trainsToMap={this.state.trains} selectedTrain={this.state.selectedTrain} />
         </div>
 
         <aside className="search-delay-filter">
           <div className="sdf-windows">
-          <Search trainsToSearch={this.state.trains}/>
+          <Search parentCallback={this.handleCallback} trainsToSearch={this.state.trains}/>
           </div>
           <div className="sdf-windows">
           <Delay />

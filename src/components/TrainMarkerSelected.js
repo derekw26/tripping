@@ -12,7 +12,7 @@ const TrainMarkerSelected = (props) => {
 
   //data manipulation
   // const firstTwenty = props.trainsToMarkers.slice(0, 20);
-  const lastTwenty = props.trainsToMarkers.slice(-20);
+  // const lastTwenty = props.trainsToMarkers.slice(-20);
 
 
   // if (firstTwenty) {
@@ -44,10 +44,10 @@ const TrainMarkerSelected = (props) => {
 
    // else
    //TODO: MAP ONLY THE SINGLE SELECTED TRAIN.
-   if (lastTwenty) {
+   if (props.trainsToMarkers) {
      return (
 
-       lastTwenty.map((train) => (
+       props.trainsToMarkers.map((train) => (
        <Marker
          key={ train.id }
          icon={{
