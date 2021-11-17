@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import { StyledEngineProvider } from '@mui/material/styles';
-import TableFromSearch from './TableFromSearch';
-import '../css/App.css';
-import axios from 'axios'
 import Map from './Map'
 import Search from './Search'
 import Filter from './Filter'
 import Delay from './Delay'
 import Weather from './Weather'
+import Footer from './Footer'
 import News from './News'
+import { StyledEngineProvider } from '@mui/material/styles';
+import TableFromSearch from './TableFromSearch';
+import '../css/App.css';
+import '../css/Map.css';
+import axios from 'axios'
+
+
 
 const SERVER_URL = 'https://young-escarpment-93961.herokuapp.com/';
 
@@ -52,15 +56,17 @@ class Tripping extends Component {
     return (
       <div className="container">
         <header>
-          <News />
-          <div className="logo">
-            <img  src="/images/logo.png"  alt="logo" width="100" />
-          </div>
-          <Weather />
+        <News />
+        <h1 class="mainheading">Transport NSW Open Data - Realtime Dashboard</h1>
+        <h4 class="instructions">Instructions:</h4>
+        <Weather />
         </header>
+        <hr class="horizontalline"></hr>
         <div className= 'google-map'>
           <Map trainsToMap={ this.state.trains } selectedTrain={ this.state.selectedTrain } />
         </div>
+        <hr class="horizontalline"></hr>
+
         <aside className="search-delay-filter">
           <div className="sdf-windows">
           <Search parentCallback={ this.handleCallback } trainsToSearch={ this.state.trains }/>
@@ -70,15 +76,17 @@ class Tripping extends Component {
          {selectedTrain}
           </div>
           <div className="sdf-windows">
-            <Delay />
-          </div>
-          <div className="sdf-windows">
             <Filter trainsToFilter={ this.state.trains }/>
           </div>
+          <div className="sdf-windows">
+
+          </div>
+          <Footer/>
         </aside>
       </div>
     )
   }
 }
 
+//  <Delay /> <Filter />
 export default Tripping;

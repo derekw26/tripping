@@ -68,20 +68,20 @@ class Search extends Component {
     return (
 
       <div className="search">
-        <form onSubmit={ this._handleSubmit }>
+        <form class="searchform" onSubmit={ this._handleSubmit }>
          <input className="text"
           type="text"
           name="origin"
           onChange={ this._handleChange }
           value={ this.state.origin }
-          placeholder="From"
+          placeholder="Origin"
           />
          <input className="text"
           type="text"
           name="destination"
           onChange={ this._handleChange }
           value={ this.state.destination }
-          placeholder="to"
+          placeholder="Destination"
           />
           <input
             type="submit"
