@@ -5,7 +5,22 @@
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 5px;
-  padding-bottom: 3px;
+  padding-bottom: 65px;
   position: absolute;
   right: 0;
+}
+
+.syd_weather p {
+  margin-top: 18px;
+  font-weight: bold;
+}
+
+.syd_weather h3 {
+  font-size: 29px;
+  margin-bottom: 22px;
+}
+
+.syd_weather h4 {
+  font-size: 21px;
+  margin-bottom: 0px;
 }
