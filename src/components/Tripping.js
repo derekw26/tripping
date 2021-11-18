@@ -58,8 +58,20 @@ class Tripping extends Component {
         <header>
         <News />
         <h1 class="mainheading">Transport NSW Open Data - Realtime Dashboard</h1>
-        <h4 class="instructions">Instructions:</h4>
-        <Weather />
+        <div class="weathercontainer">
+          <div class="instructionscontainer">
+            <h4 class="instructions">Important Information:</h4>
+            <p class="instructionsparagraph">
+              <ul>
+                <li>Data has been sourced from "Open Data Transport NSW".</li>
+                <li>The map displays realtime train positions in the City of Sydney.</li>
+                <li>Trains can be filtered and individuallty selected utilising the search feature.</li>
+                <li>Individual trains on the map can be clicked for further information.</li>
+              </ul>
+            </p>
+          </div>
+          <Weather />
+        </div>
         </header>
         <hr class="horizontalline"></hr>
         <div className= 'google-map'>
