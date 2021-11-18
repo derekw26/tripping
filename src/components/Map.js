@@ -12,16 +12,11 @@ const mapContainerStyle = {
 
 }
 
-const center = {
-  lat: -33.858820,
-  lng: 151.059290
-}
-
 const options = {
   styles: mapStyles,
   disableDefaultUI: true,
   zoomControl: true,
-  maxZoom: 15,
+  maxZoom: 16,
   minZoom: 11,
   // gestureHandling: 'greedy'
 }
@@ -39,9 +34,9 @@ const Map = (props) => {
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading maps";
 
-  const onLoad = transitLayer => {
-   // console.log('transitLayer: ', transitLayer)
-  }
+  // const onLoad = transitLayer => {
+  //   console.log('transitLayer: ', transitLayer)
+  // }
 
   const _handleActiveMarker = (marker) => {
     if (marker === activeMarker) {
@@ -73,8 +68,8 @@ const Map = (props) => {
         <GoogleMap
           id="map-canvas"
           mapContainerStyle={mapContainerStyle}
-          zoom={11}
-          center={center}
+          zoom={props.mapZoom}
+          center={props.mapCenter}
           options={options}
         >
 
@@ -82,9 +77,7 @@ const Map = (props) => {
 
           <TrainMarkerSelected trainsToMarkers={selectedTrain} onSubmit={ _handleSelectedMarker } selectedTrain={ selectedMarker }/>
 
-          <TransitLayer
-            onLoad={onLoad}
-          />
+          <TransitLayer />
         </GoogleMap>
     );
 }

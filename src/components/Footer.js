@@ -8,7 +8,7 @@ class Footer extends Component {
 
   			<div class="footer-left">
 
-  				<h3>Transport N.S.W. Open Data: <span>Realtime Dashboard</span></h3>
+  				<h3>Transport NSW Open Data: <span>Realtime Dashboard</span></h3>
 
   				<p class="footer-links">
   					<a href="/">Home</a>

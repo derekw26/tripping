@@ -53,7 +53,6 @@ class Search extends Component {
 
    event.preventDefault();
    this.props.parentCallback(event.target.id);
-
   }
 
 
@@ -64,7 +63,7 @@ class Search extends Component {
       return (
 
 
-        <tr>
+        <tr key={train.trip_id}>
           <td id={train.trip_id} style={{color: "black"}} onClick={ this._viewTrain }>{ train.time }</td>
           <td id={train.trip_id} style={{color: "black"}} onClick={ this._viewTrain }>{ train.origin }</td>
           <td id={train.trip_id} style={{color: "black"}} onClick={ this._viewTrain }>{ train.destination }</td>
