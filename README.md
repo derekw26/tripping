@@ -1,71 +1,52 @@
-# Getting Started with Create React App
+# Tripping - A user-friendly realtime Sydney trains position search
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##About
 
-## Available Scripts
+Tripping is a web application that allows you to display realtime train positions in the City of Sydney.Trains can be filtered and individually selected utilising the search feature.Individual trains on the map can be clicked for further information.
 
-In the project directory, you can run:
+## General Assembly Project 2 - React JS + Ruby with Sinatra
 
-### `npm start`
+Tripping is using API data from Transport NSW Open Data, openweathermap.org and newsapi.org.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##Main components
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    Google map
+    Train lines component
+    Search bar component
+    Next stations component
 
-### `npm test`
+##Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    Go to https://tripping-transit.netlify.app
+    In the search bar below the map type your Origin and Destination.
+    The table with the available trains appear below the map, choose a train and click "Origin station".
+    Once, you have clicked, the marker on the map will indicate the realtime train position (red icon).
+    To the right side of the table there is a component "Next stations", you need to click the button and the component window will expand and show all remaining stations on the current train line/route.
+    In train lines component you can choose which lines you displayed on Google map by simply checking the needed box.
 
-### `npm run build`
+##Technologies used
+    React JS
+    MUI
+    Ruby 2.7.4
+    Sinatra
+    Bootstrap
+    CSS
+    API data from Transport NSW Open Data, openweathermap.org and newsapi.org
+    Netlify for front end hosting
+    Heroku for live server hosting
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Access site: front end https://tripping-transit.netlify.app/
+Access site: Live server https://young-escarpment-93961.herokuapp.com/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##What we would do in future version:
+Functional sign-in feature in front-end
+Detect incoming users' geolocation
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contributors
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# tripping
+    @go_berniego
+    @Alexhappylucky
+    @
+    @

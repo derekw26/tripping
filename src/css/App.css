@@ -22,13 +22,13 @@ header {
   margin-bottom: 30px;
   margin-top: 10px;
   padding-top: 8px;
-  background-color: #5E7BFF;
+  background-color: #4169e1;
 }
 
 .instructions {
   margin-left: 20px;
   margin-top: 15px;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   float: left;
 }
 
@@ -68,7 +68,7 @@ li {
   grid-area: sidebar;
 }
 
-.container {
+.contain {
   position: relative;
   background-color: white;
   /* background-image: url("https://media-exp1.licdn.com/dms/image/C4E1BAQHyPR5XH6N6fQ/company-background_10000/0/1609449609441?e=2159024400&v=beta&t=JwC2QOKmFs2p6aNDGI9SnJhp9NucMwTkV94luVcg9qs"); */
@@ -91,4 +91,15 @@ li {
 
 .sdf-windows {
   padding: 0px;
+}
+
+.accordian {
+  float: right;
+  width: 20%;
+  margin-right: 25px;
+  margin-top: 20px;
+}
+
+.accordian button {
+  border-radius: 5px;
 }

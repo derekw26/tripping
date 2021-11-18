@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table'
 function App() {
 
   return (
-    <div className="container">
+    <div className="contain">
       <Tripping/>
     </div>
   );
