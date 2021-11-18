@@ -1,11 +1,11 @@
 .syd_weather {
-  min-width: 250px;;
+  width: 250px;;
   background-color: #BECAFF;
   margin-right: 40px;
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 5px;
-  padding-bottom: 65px;
+  padding-bottom: 34px;
   position: absolute;
   right: 0;
 }
