@@ -6,11 +6,10 @@ import Delay from './Delay'
 import Weather from './Weather'
 import Footer from './Footer'
 import News from './News'
-import { StyledEngineProvider } from '@mui/material/styles';
-import TableFromSearch from './TableFromSearch';
 import '../css/App.css';
 import '../css/Map.css';
 import axios from 'axios'
+import Table from 'react-bootstrap/Table'
 
 
 
@@ -32,10 +31,10 @@ class Tripping extends Component {
   };
 
 
-  handleCallback(childData) {
-    this.setState({selectedTrain: childData})
+  handleCallback(tripID) {
+    this.setState({selectedTrain: tripID})
     // console.log("THIS IS PRINTING THE TRIPPING COMPONENT" + this.state.selectedTrain);
-    console.log(this.state.filteredTrains);
+    // console.log(this.state.filteredTrains);
   }
 
   componentDidMount() {
@@ -71,10 +70,6 @@ class Tripping extends Component {
         <aside className="search-delay-filter">
           <div className="sdf-windows">
           <Search parentCallback={ this.handleCallback } trainsToSearch={ this.state.trains }/>
-          <StyledEngineProvider injectFirst>
-            <TableFromSearch origin={ this.state.origin } destination={ this.state.destination } allTrains={ this.state.trains }/>
-          </StyledEngineProvider>
-         {selectedTrain}
           </div>
           <div className="sdf-windows">
             <Filter trainsToFilter={ this.state.trains }/>

@@ -56,13 +56,13 @@ const Map = (props) => {
   };
 
   const selectedTrain = props.trainsToMap.filter((t) => {
-    if(t.id == props.selectedTrain) {
+    if(t.trip_id == props.selectedTrain) {
       return t;
     }
   });
 
   const spareTrains = props.trainsToMap.filter((t) => {
-    if(t.id !== props.selectedTrain) {
+    if(t.trip_id !== props.selectedTrain) {
       return t;
     }
   });
