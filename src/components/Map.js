@@ -7,8 +7,8 @@ import TrainMarkerSelected from './TrainMarkerSelected';
 
 const libraries = ['places'];
 const mapContainerStyle = {
-  width: "60%",
-  height: "600px"
+  width: "75%",
+  height: "980px"
 
 }
 
@@ -23,7 +23,7 @@ const options = {
   zoomControl: true,
   maxZoom: 15,
   minZoom: 11,
-  gestureHandling: 'greedy'
+  // gestureHandling: 'greedy'
 }
 
 const Map = (props) => {

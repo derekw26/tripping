@@ -7,3 +7,11 @@
     display:block;
     z-index:999;
 }
+
+.filter {
+  width: 20%;
+  float: left;
+  background-color: #F7F7F7;
+  padding-top: 7px;
+  border-radius: 10px;
+}

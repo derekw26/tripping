@@ -1,8 +1,17 @@
-.searchform {
-  margin: auto;
+.search form {
+  /* margin: auto; */
   display: block;
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  margin-top: 0px;
+  background-color: #BECAFF;
+}
+
+.search input {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  border-radius: 5px;
 }
 
 input {
@@ -30,4 +39,6 @@ input {
 .table {
 height: 200px;
 overflow: scroll;
+margin-top: 5px;
+background-color: white;
 }

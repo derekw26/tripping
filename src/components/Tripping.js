@@ -83,8 +83,8 @@ class Tripping extends Component {
         <div className= 'google-map'>
           <Map trainsToMap={ this.state.trains } selectedTrain={ this.state.selectedTrain } selectedRoutes={ this.state.selectedRoutes }/>
         </div>
-        <hr className="horizontalline"></hr>
         <Filter trainsToFilter={ this.state.trains } routesCallback={ this.handleRoutes } />
+        <hr className="horizontalline"></hr>
         <aside className="search-delay-filter">
           <div className="sdf-windows">
             <Search parentCallback={ this.handleCallback } trainsToSearch={ this.state.trains }/>
