@@ -1,5 +1,8 @@
 import { Component } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow, TransitLayer } from '@react-google-maps/api';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
 import axios from 'axios';
 import '../css/search.css';
 import Table from 'react-bootstrap/Table'
@@ -14,11 +17,14 @@ class Search extends Component {
       origin: '' ,
       destination: '',
       id: '',
+      trip_id:'',
+      stops:[],
       trains: [],
     };
     this._handleChange = this._handleChange.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
     this.renderTrain = this.renderTrain.bind(this);
+    this.renderStops = this.renderStops.bind(this);
     this._viewTrain = this._viewTrain.bind(this);
   }
 
@@ -30,7 +36,7 @@ class Search extends Component {
 
   _handleSubmit(event) {
     event.preventDefault();
-    
+
 
       const allTrains = this.props.trainsToSearch     //response.data;
 
@@ -46,15 +52,17 @@ class Search extends Component {
   }
 
   _viewTrain(event) {
+
    event.preventDefault();
    this.props.parentCallback(event.target.id);
-   console.log(event.target.id);
+
   }
 
 
   renderTrain(train) {
     if (train) {
       return (
+
 
         <tr>
           <td id={train.trip_id} style={{color: "black"}} onClick={ this._viewTrain }>{ train.time }</td>
@@ -66,11 +74,35 @@ class Search extends Component {
     }
   };
 
+  renderStops(train) {
+    if (train) {
+      return (
+
+        <div key= { train.id } className="stopsInfo" >
+        <Accordion>
+        <AccordionSummary
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        ><button> stops </button>
+         </AccordionSummary>
+         <AccordionDetails>
+        <ul onClick={ this.renderTrain }>
+       { train.stops.map((stop) => <li> { stop } </li> )}
+        </ul>
+        </AccordionDetails>
+        </Accordion>
+
+
+        </div>
+      )
+    }
+  }
   render () {
 
     return (
 
       <div className="search">
+
         <form onSubmit={ this._handleSubmit }>
          <input className="text"
           type="text"
