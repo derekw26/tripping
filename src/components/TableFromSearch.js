@@ -167,13 +167,10 @@ const VirtualizedTable = withStyles(styles, { defaultTheme })(
 // ---
 
 
-const dataFromSearch = [
-  ["time", "Central", "Hornsby"],
-  ["time", "Central", "Parramatta"]
-];
+const dataFromSearch = this.props.allTrains.map((train))
 
-function createData(time, origin, destination) {
-  return { time, origin, destination };
+function createData(id, time, origin, destination) {
+  return { id, time, origin, destination };
 }
 
 const rows = [];

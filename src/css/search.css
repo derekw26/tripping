@@ -26,3 +26,8 @@ input {
   from { width: 5ch ;}
 
 }
+
+.table {
+height: 200px;
+overflow: scroll;
+}

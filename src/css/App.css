@@ -9,25 +9,55 @@ header {
 }
 /* main heading on the homepage */
 .mainheading {
-  background-color: #EFEFEF;
+  background-color: #FAFAFA;
   color: darkblue;
-  margin-top: 5px;
+  margin-top: 25px;
   margin-bottom: 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .horizontalline {
   width: 100%;
   margin-bottom: 30px;
   margin-top: 10px;
-  padding-top: 5px;
-  background-color: darkblue;
+  padding-top: 8px;
+  background-color: #5E7BFF;
 }
 
 .instructions {
-  margin-left: 50px;
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 0px;
   float: left;
+}
+
+.instructionsparagraph {
+  margin: 0;
+  padding-bottom: 0px;
+
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.instructionscontainer {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 30px;
+  margin-top: 11px;
+  padding-bottom: 2px;
+  width: 78%;
+  background-color: #E9EDFF;
+  border-radius: 10px;
+}
+
+.weathercontainer {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .google-map {
