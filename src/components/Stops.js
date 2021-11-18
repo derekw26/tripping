@@ -3,6 +3,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import axios from 'axios';
+import '../css/App.css';
 
 
 const Stops = (props) => {
@@ -29,7 +30,7 @@ const Stops = (props) => {
 return(
 
     <div>
-      <Accordion>
+      <Accordion className="accordian">
         <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
           <button> Next Stations </button>
          </AccordionSummary>
