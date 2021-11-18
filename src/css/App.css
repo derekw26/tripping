@@ -103,3 +103,7 @@ li {
 .accordian button {
   border-radius: 5px;
 }
+
+heading {
+  display: flex;
+}
