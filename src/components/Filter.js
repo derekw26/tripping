@@ -36,9 +36,13 @@ export default function Filter(props) {
     return sortedRoutes
   }
 
+  const routesNoSpaces = cleanRoutes().map((route) => route.replace(/\s/g, ''));
+  console.log(routesNoSpaces)
+
+
   return (
     <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {cleanRoutes().map((route) => {
+      {cleanRoutes().map((route, i) => {
         const labelId = `checkbox-list-secondary-label-${route}`;
         return (
           <ListItem
@@ -56,7 +60,8 @@ export default function Filter(props) {
             <ListItemButton>
               <ListItemAvatar>
                 <Avatar
-                  alt={`Avatar n°${route}`}
+                  alt={`Route ${route}`}
+                  src={`${process.env.PUBLIC_URL}/images/train_routes/${ routesNoSpaces[i] }.jpeg`}
 
                 />
               </ListItemAvatar>

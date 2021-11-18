@@ -35,8 +35,10 @@ const TrainMarkers = (props) => {
             <InfoWindow position={{lat: train.lat, lng: train.lng}}>
               <div>
                 {train.time} - {train.origin} to {train.destination}
-
+                <br/>
+                {train.route_id}
               </div>
+
             </InfoWindow>
           ) : null}
        </Marker>
