@@ -26,7 +26,8 @@ class Tripping extends Component {
       trains: [],
       origin: null,
       destination: null,
-      selectedRoutes: []
+      selectedRoutes: [],
+      curTime : new Date().toLocaleString()
     };
     this.handleCallback = this.handleCallback.bind(this)
     this.handleRoutes = this.handleRoutes.bind(this)
@@ -48,9 +49,11 @@ class Tripping extends Component {
     const fetchTrains = () => {
       axios(SERVER_URL).then((response) => {
         this.setState({trains: response.data});
-        // console.log(this.state.trains);
-        setTimeout(fetchTrains, 3000);
+        const hours = new Date().toLocaleString()
+        this.setState({curTime: hours});
+        setTimeout(fetchTrains, 1000);
       });
+
     };
 
     fetchTrains();
@@ -87,6 +90,9 @@ class Tripping extends Component {
         <hr className="horizontalline"></hr>
         <aside className="search-delay-filter">
           <div className="sdf-windows">
+          <div className="current_time">
+          </div>
+            {this.state.curTime}
             <Search parentCallback={ this.handleCallback } trainsToSearch={ this.state.trains }/>
           <Stops allTrains={ this.state.trains } selectedTrain={this.state.selectedTrain}  />
           </div>
