@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow, TransitLayer } from '@react-google-maps/api';
 import axios from 'axios';
 import '../css/search.css';
+import Table from 'react-bootstrap/Table'
+
 
 
 class Search extends Component {
@@ -28,10 +30,10 @@ class Search extends Component {
 
   _handleSubmit(event) {
     event.preventDefault();
-    // axios(SERVER_URL).then((response)=> {
+    
 
       const allTrains = this.props.trainsToSearch     //response.data;
-      // console.log(allTrains);
+
      const filteredTrains = allTrains.filter((train) =>{
            if(train.origin.includes(this.state.origin)&&
              train.destination.includes(this.state.destination)) {
@@ -40,61 +42,72 @@ class Search extends Component {
          }
       )
       this.setState({ trains: filteredTrains})
-    // })
+
   }
 
   _viewTrain(event) {
-    event.preventDefault();
-    const trainID = event.target.id;
-    const trainOrigin= this.state.origin;
-    const trainDestination = this.state.destination;
-    this.props.parentCallback(trainID, trainOrigin, trainDestination);
-
+   event.preventDefault();
+   this.props.parentCallback(event.target.id);
+   console.log(event.target.id);
   }
+
 
   renderTrain(train) {
     if (train) {
       return (
-      <div key= { train.id } >
-      <a id = { train.id } style={{color: "black"}} onClick={ this._viewTrain } > { train.time } from { train.origin } to { train.destination } </a>
-      </div>
 
-      )
+        <tr>
+          <td id={train.trip_id} style={{color: "black"}} onClick={ this._viewTrain }>{ train.time }</td>
+          <td id={train.trip_id} style={{color: "black"}} onClick={ this._viewTrain }>{ train.origin }</td>
+          <td id={train.trip_id} style={{color: "black"}} onClick={ this._viewTrain }>{ train.destination }</td>
+        </tr>
+
+    );
     }
-  }
+  };
 
   render () {
 
     return (
 
       <div className="search">
-        <form class="searchform" onSubmit={ this._handleSubmit }>
+        <form onSubmit={ this._handleSubmit }>
          <input className="text"
           type="text"
           name="origin"
           onChange={ this._handleChange }
           value={ this.state.origin }
-          placeholder="Origin"
+          placeholder="From"
           />
          <input className="text"
           type="text"
           name="destination"
           onChange={ this._handleChange }
           value={ this.state.destination }
-          placeholder="Destination"
+          placeholder="to"
           />
           <input
             type="submit"
             value="Search"
           />
         </form>
-        
-        <div >
-        { this.state.trains.map(this.renderTrain) }
+        <div class="table">
+        <Table striped bordered hover >
+          <thead>
+            <tr>
+              <th>Departure Time</th>
+              <th>Origin</th>
+              <th>Destination</th>
+            </tr>
+          </thead>
+          <tbody>
+            { this.state.trains.map(this.renderTrain) }
+          </tbody>
+        </Table>
         </div>
       </div>
     );
   }
-}
+};
 
 export default Search;
