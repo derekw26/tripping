@@ -66,7 +66,7 @@
 
 .tables {
 float: left;
-min-width: 75%;
+max-width: 75%;
 height: 400px;
 overflow: scroll;
 margin-top: 15px;
@@ -75,8 +75,16 @@ margin-bottom: 30px;
 background-color: white;
 }
 
-thead th {
+.tableFixHead {
+  overflow: auto;
+  height: 400px;
+  max-width: 75%;
+}
+
+.tableFixHead thead th {
   position: sticky;
   top: 0;
   z-index: 1;
+  background-color: white;
+  max-width: 75%;
 }
