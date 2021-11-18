@@ -128,7 +128,7 @@ heading {
 .stopsAbsolute {
   position: absolute;
   top: 90px;
-  left: 1300px;
+  right: -1290px;
   width: 100%;
 }
 
