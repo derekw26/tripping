@@ -99,7 +99,7 @@ class Search extends Component {
             value="Search"
           />
         </form>
-        <div class="tables">
+        <div class="tables" class="tableFixHead">
         <Table striped bordered hover class="tables">
           <thead>
             <tr>
