@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component, useState, useEffect } from "react"
 import { GoogleMap, useLoadScript, Marker, InfoWindow, TransitLayer } from '@react-google-maps/api';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -8,21 +8,26 @@ import '../css/search.css';
 
 
 const Stops =(props) =>  {
+const [selectedTrain, setSelectedTrain] = useState([]);
 
+  function filteredSelectedTrain() {
+    props.allTrains.filter((t) => {
+    if(t.trip_id == props.selectedTrain) {
 
-  const selectedTrain = props.allTrains.filter((t) => {
-    if(t.id == props.selectedTrain) {
-
-      return t;
+      setTimeout(function(){ setSelectedTrain(t) }, 500);
+      console.log(t)
     }
-  });
-
-  console.log(selectedTrain)
-
+  })
+};
 
 
 
-   // renderStops()
+
+     useEffect(()=>{
+     filteredSelectedTrain()
+   },[props.allTrains]);
+
+
 
 
     return (
@@ -33,11 +38,13 @@ const Stops =(props) =>  {
       <AccordionSummary
         aria-controls="panel1a-content"
         id="panel1a-header"
-      ><button> stops </button>
+      >
+
+      <button>stops </button>
        </AccordionSummary>
        <AccordionDetails>
       <ul >
-      <li> { selectedTrain  } </li>
+      <li> { selectedTrain ? selectedTrain.stops.map((stop) => <p>{stop} </p> ) : "no train selected" }   </li>
       </ul>
       </AccordionDetails>
       </Accordion>
