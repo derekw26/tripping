@@ -13,11 +13,9 @@ class Footer extends Component {
   				<p class="footer-links">
   					<a href="#">Home</a>
   			    |
-  					<a href="#">Github-Client</a>
+  					<a href="https://github.com/derekw26/tripping">Github-Client</a>
   					|
-  					<a href="#">Github-Server</a>
-  					|
-  					<a href="#">Contact</a>
+  					<a href="https://github.com/BernardoMar/sinatraApiKey">Github-Server</a>
   				</p>
 
   				<p class="footer-company-name">General Assembly © 2021</p>
@@ -28,7 +26,7 @@ class Footer extends Component {
 
   			<div class="footer-right">
 
-  				<p>ABOUT: PROJECT 2</p>
+  				<p>ABOUT OUR PROJECT</p>
           <p>This project was completed as part of General Assembly's Software Engineering Immersive Program as part of Project 2 (SEI48). Further information such as the code and readme files can be obtained via the GitHub links.</p>
 
   				{/* <form action="#" method="post">
