@@ -1,5 +1,8 @@
 import { Component } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow, TransitLayer } from '@react-google-maps/api';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
 import axios from 'axios';
 import '../css/search.css';
 
@@ -12,11 +15,14 @@ class Search extends Component {
       origin: '' ,
       destination: '',
       id: '',
+      trip_id:'',
+      stops:[],
       trains: [],
     };
     this._handleChange = this._handleChange.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
     this.renderTrain = this.renderTrain.bind(this);
+    this.renderStops = this.renderStops.bind(this);
     this._viewTrain = this._viewTrain.bind(this);
   }
 
@@ -46,9 +52,8 @@ class Search extends Component {
   _viewTrain(event) {
     event.preventDefault();
     const trainID = event.target.id;
-    const trainOrigin= this.state.origin;
-    const trainDestination = this.state.destination;
-    this.props.parentCallback(trainID, trainOrigin, trainDestination);
+
+    this.props.parentCallback(trainID);
 
   }
 
@@ -57,18 +62,43 @@ class Search extends Component {
       return (
       <div key= { train.id } >
       <a id = { train.id } style={{color: "black"}} onClick={ this._viewTrain } > { train.time } from { train.origin } to { train.destination } </a>
+      { this.renderStops(train) }
       </div>
+
 
       )
     }
   }
 
+  renderStops(train) {
+    if (train) {
+      return (
+
+        <div key= { train.id } className="stopsInfo" >
+        <Accordion>
+        <AccordionSummary
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        ><button> stops </button>
+         </AccordionSummary>
+         <AccordionDetails>
+        <ul onClick={ this.renderTrain }>
+       { train.stops.map((stop) => <li> { stop } </li> )}
+        </ul>
+        </AccordionDetails>
+        </Accordion>
+
+
+        </div>
+      )
+    }
+  }
   render () {
 
     return (
 
       <div className="search">
-        <form class="searchform" onSubmit={ this._handleSubmit }>
+        <form className="searchform" onSubmit={ this._handleSubmit }>
          <input className="text"
           type="text"
           name="origin"
@@ -88,7 +118,7 @@ class Search extends Component {
             value="Search"
           />
         </form>
-        
+
         <div >
         { this.state.trains.map(this.renderTrain) }
         </div>

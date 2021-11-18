@@ -6,6 +6,7 @@ import Delay from './Delay'
 import Weather from './Weather'
 import Footer from './Footer'
 import News from './News'
+import Stops from './Stops'
 import { StyledEngineProvider } from '@mui/material/styles';
 import TableFromSearch from './TableFromSearch';
 import '../css/App.css';
@@ -25,7 +26,7 @@ class Tripping extends Component {
       selectedTrain: null,
       trains: [],
       origin: null,
-      destination: null
+      destination: null,
     };
 
     this.handleCallback = this.handleCallback.bind(this)
@@ -57,19 +58,20 @@ class Tripping extends Component {
       <div className="container">
         <header>
         <News />
-        <h1 class="mainheading">Transport NSW Open Data - Realtime Dashboard</h1>
-        <h4 class="instructions">Instructions:</h4>
+        <h1 className="mainheading">Transport NSW Open Data - Realtime Dashboard</h1>
+        <h4 className="instructions">Instructions:</h4>
         <Weather />
         </header>
-        <hr class="horizontalline"></hr>
+        <hr className="horizontalline"></hr>
         <div className= 'google-map'>
           <Map trainsToMap={ this.state.trains } selectedTrain={ this.state.selectedTrain } />
         </div>
-        <hr class="horizontalline"></hr>
+        <hr className="horizontalline"></hr>
 
         <aside className="search-delay-filter">
           <div className="sdf-windows">
           <Search parentCallback={ this.handleCallback } trainsToSearch={ this.state.trains }/>
+          <Stops allTrains={ this.state.trains } selectedTrain={this.state.selectedTrain}  />
           <StyledEngineProvider injectFirst>
             <TableFromSearch origin={ this.state.origin } destination={ this.state.destination } allTrains={ this.state.trains }/>
           </StyledEngineProvider>
