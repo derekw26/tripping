@@ -5,6 +5,14 @@ display: flex;
 /* justify-content: center; */
 }
 
+.thefirsthorizontalline {
+  width: 100%;
+  margin-top: 0;
+  padding-bottom: 10px;
+  background-color: darkblue;
+  opacity: 1;
+}
+
 header {
   text-align: center;
   grid-area: header;
@@ -25,23 +33,24 @@ header {
   margin-top: 10px;
   padding-top: 8px;
   background-color: #4169e1;
+  opacity: 0.9;
 }
 
 .instructions {
   margin-left: 20px;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  margin-top: 18px;
+  /* margin-bottom: 10px; */
   float: left;
 }
 
 .instructionsparagraph {
-  margin: 0;
-  padding-bottom: 0px;
-
+  /* margin: 0;
+  padding-bottom: 0px; */
+  margin-right: 5px;
 }
 
 li {
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 }
 
 .instructionscontainer {
@@ -49,17 +58,19 @@ li {
   flex-direction: column;
   text-align: left;
   margin-left: 30px;
-  margin-top: 11px;
+  /* margin-top: 11px; */
   padding-bottom: 2px;
-  width: 78%;
+  width: 79%;
   background-color: #E9EDFF;
   border-radius: 10px;
 }
 
 .weathercontainer {
   display: flex;
-  margin-top: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
   margin-bottom: 20px;
+  justify-content: space-between;
 }
 
 .google-map {

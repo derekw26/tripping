@@ -87,6 +87,7 @@ class Tripping extends Component {
     const{selectedTrain}=this.state;
     return (
       <div className="contain">
+        <hr className="thefirsthorizontalline"></hr>
         <header className="heading">
           <News />
           <h1 className="mainheading">Transport NSW Open Data - Realtime Dashboard</h1>

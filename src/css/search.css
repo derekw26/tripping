@@ -36,6 +36,7 @@
   width: 220px;
   padding-left: 9px;
 }
+
 *:focus {
     outline: none;
 }

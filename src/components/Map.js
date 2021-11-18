@@ -8,8 +8,7 @@ import TrainMarkerSelected from './TrainMarkerSelected';
 const libraries = ['places'];
 const mapContainerStyle = {
   width: "75%",
-  height: "1070px"
-
+  height: "1070px",
 }
 
 const options = {
