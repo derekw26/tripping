@@ -1,0 +1,21 @@
+button {
+  margin: 0 auto !important;
+  background-color: #4169e1;
+  color: white;
+  border: 0px solid;
+  font-family: 'Roboto', sans-serif;
+  height: 40px;
+  width: 220px;
+  padding-left: 9px;
+}
+
+.details {
+  height: 200px;
+  overflow: scroll;
+  padding: 0;
+}
+
+.stops {
+  margin-right: 5px;
+  margin-top: -3px;
+}

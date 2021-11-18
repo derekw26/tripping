@@ -26,12 +26,16 @@ class Tripping extends Component {
       trains: [],
       origin: null,
       destination: null,
-      selectedRoutes: []
+      selectedRoutes: [],
+      mapCenter: {
+        lat: -33.858820,
+        lng: 151.059290
+      },
+      mapZoom: 11
     };
     this.handleCallback = this.handleCallback.bind(this)
     this.handleRoutes = this.handleRoutes.bind(this)
   };
-
 
   handleCallback(tripID) {
     this.setState({selectedTrain: tripID})
@@ -48,30 +52,52 @@ class Tripping extends Component {
     const fetchTrains = () => {
       axios(SERVER_URL).then((response) => {
         this.setState({trains: response.data});
-        // console.log(this.state.trains);
-        setTimeout(fetchTrains, 3000);
+        setTimeout(fetchTrains, 1000);
       });
     };
+    const fetchTime = () => {
+      const hours = new Date().toLocaleString()
+      this.setState({curTime: hours});
+      setTimeout(fetchTime, 200);
+    };
 
+    fetchTime();
     fetchTrains();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+
+    const selected = this.state.trains.filter((train) => (train.trip_id == this.state.selectedTrain))
+
+    if (prevState.selectedTrain !== this.state.selectedTrain) {
+      this.setState({
+        mapCenter: {
+          lat: selected[0].lat,
+          lng: selected[0].lng
+        },
+        mapZoom: 13
+      })
+
+    }
   }
 
 
   render() {
+
     const{selectedTrain}=this.state;
     return (
       <div className="contain">
         <header className="heading">
           <News />
           <h1 className="mainheading">Transport NSW Open Data - Realtime Dashboard</h1>
-          <div class="weathercontainer">
-            <div class="instructionscontainer">
-              <h4 class="instructions">Important Information:</h4>
-              <p class="instructionsparagraph">
+          <div className="weathercontainer">
+            <div className="instructionscontainer">
+              <h4 className="instructions">Important Information:</h4>
+              <p className="instructionsparagraph">
                 <ul>
                   <li>Data has been sourced from "Open Data Transport NSW".</li>
-                  <li>The map displays realtime train positions in the City of Sydney.</li>
-                  <li>Trains can be filtered and individuallty selected utilising the search feature.</li>
+                  <li>The map displays realtime train positions in Sydney, the Blue Mountains and the Central Coast.</li>
+                  <li>Trains can be filtered by terminal origin and destination and individually selected using the search feature to display on the map.</li>
                   <li>Individual trains on the map can be clicked for further information.</li>
                 </ul>
               </p>
@@ -81,15 +107,27 @@ class Tripping extends Component {
         </header>
         <hr className="horizontalline"></hr>
         <div className= 'google-map'>
-          <Map trainsToMap={ this.state.trains } selectedTrain={ this.state.selectedTrain } selectedRoutes={ this.state.selectedRoutes }/>
+          <Map mapZoom={ this.state.mapZoom } mapCenter={ this.state.mapCenter } trainsToMap={ this.state.trains } selectedTrain={ this.state.selectedTrain } selectedRoutes={ this.state.selectedRoutes }/>
         </div>
-        <Filter trainsToFilter={ this.state.trains } routesCallback={ this.handleRoutes } />
+        <div className="filterContainer">
+          <Filter trainsToFilter={ this.state.trains } routesCallback={ this.handleRoutes } />
+        </div>
         <hr className="horizontalline"></hr>
         <aside className="search-delay-filter">
           <div className="sdf-windows">
-            <Search parentCallback={ this.handleCallback } trainsToSearch={ this.state.trains }/>
-          <Stops allTrains={ this.state.trains } selectedTrain={this.state.selectedTrain}  />
+            <div className="current_time">
+              {this.state.curTime}
+            </div>
+
+          <div className="searchAndStops">
+            <Search className="searchs" parentCallback={ this.handleCallback } trainsToSearch={ this.state.trains }/>
+            <div className="stops">
+              <div className="stopsAbsolute">
+                <Stops allTrains={ this.state.trains } selectedTrain={this.state.selectedTrain}  />
+              </div>
+            </div>
           </div>
+        </div>
 
           <div className="sdf-windows">
 

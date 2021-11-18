@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
 #root {
 display: flex;
 /* justify-content: center; */
@@ -106,4 +108,31 @@ li {
 
 heading {
   display: flex;
+}
+
+.stops {
+  position: relative;
+}
+
+.stopsAbsolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.mapAndFilter {
+  display: flex;
+}
+
+.filterContainer {
+  max-width: 327px;
+}
+
+.current_time {
+  background-color: #4169e1;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  font-family: 'Roboto', sans-serif;
 }

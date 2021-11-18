@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
 .search form {
   /* margin: auto; */
   display: block;
@@ -8,13 +10,38 @@
   background-image: url('https://content.api.news/v3/images/bin/0b66a287ad48baae66a2d9aa72643d33');
 }
 
-.search input {
+.search input[type=text] {
   margin-top: 20px;
   margin-bottom: 15px;
   margin-left: 20px;
   border-radius: 5px;
+  background-color: rgb(232, 240, 254);
+  color: black;
+  border: 0px solid;
+  font-family: 'Roboto', sans-serif;
+  height: 40px;
+  width: 220px;
+  padding-left: 9px;
 }
-
+.search input[type=submit] {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  border-radius: 5px;
+  background-color: #4169e1;
+  color: white;
+  border: 0px solid;
+  font-family: 'Roboto', sans-serif;
+  height: 40px;
+  width: 220px;
+  padding-left: 9px;
+}
+*:focus {
+    outline: none;
+}
+::placeholder {
+  color: black;
+}
 
 .text {
   width: 20ch;
@@ -45,8 +72,4 @@ margin-top: 15px;
 margin-left: 15px;
 margin-bottom: 30px;
 background-color: white;
-}
-
-.stopsInfo button {
-  border-radius: 5px;
 }
