@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const TrainMarkerSelected = (props) => {
 
-  const _handleActiveMarker = (trainID) => {
+  const _handleSelectedMarker = (trainID) => {
     props.onSubmit(trainID);
   }
 
@@ -57,7 +57,7 @@ const TrainMarkerSelected = (props) => {
          }}
          position={{lat: train.lat, lng: train.lng}}
          animation={google.maps.Animation.DROP}
-         onClick={() => _handleActiveMarker(train.id)}
+         onClick={() => _handleSelectedMarker(train.id)}
        >
        {props.selectedTrain === train.id ? (
             <InfoWindow position={{lat: train.lat, lng: train.lng}}>
@@ -113,12 +113,3 @@ const TrainMarkerSelected = (props) => {
 
 
 export default TrainMarkerSelected;
-
-
-// class Selected extends Component {
-//   render(){
-//     return(
-//       <div>Hello</div>
-//     )
-//   }
-// }

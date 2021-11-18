@@ -25,10 +25,11 @@ class Tripping extends Component {
       selectedTrain: null,
       trains: [],
       origin: null,
-      destination: null
+      destination: null,
+      selectedRoutes: []
     };
-
     this.handleCallback = this.handleCallback.bind(this)
+    this.handleRoutes = this.handleRoutes.bind(this)
   };
 
 
@@ -37,13 +38,17 @@ class Tripping extends Component {
      // console.log("THIS IS PRINTING THE TRIPPING COMPONENT" + this.state.selectedTrain, this.state.origin, this.state.destination);
   }
 
+  handleRoutes(selectedRoutes) {
+    this.setState({selectedRoutes: selectedRoutes})
+  }
+
   componentDidMount() {
 
     const fetchTrains = () => {
       axios(SERVER_URL).then((response) => {
         this.setState({trains: response.data});
         // console.log(this.state.trains);
-        setTimeout(fetchTrains, 4000);
+        setTimeout(fetchTrains, 5000);
       });
     };
 
@@ -56,17 +61,17 @@ class Tripping extends Component {
     return (
       <div className="container">
         <header>
-        <News />
-        <h1 class="mainheading">Transport NSW Open Data - Realtime Dashboard</h1>
-        <h4 class="instructions">Instructions:</h4>
-        <Weather />
+          <News />
+          <h1 class="mainheading">Transport NSW Open Data - Realtime Dashboard</h1>
+          <h4 class="instructions">Instructions:</h4>
+          <Weather />
         </header>
         <hr class="horizontalline"></hr>
         <div className= 'google-map'>
-          <Map trainsToMap={ this.state.trains } selectedTrain={ this.state.selectedTrain } />
+          <Map trainsToMap={ this.state.trains } selectedTrain={ this.state.selectedTrain } selectedRoutes={ this.state.selectedRoutes }/>
         </div>
         <hr class="horizontalline"></hr>
-
+            <Filter trainsToFilter={ this.state.trains } routesCallback={ this.handleRoutes } />
         <aside className="search-delay-filter">
           <div className="sdf-windows">
           <Search parentCallback={ this.handleCallback } trainsToSearch={ this.state.trains }/>
@@ -75,8 +80,9 @@ class Tripping extends Component {
           </StyledEngineProvider>
          {selectedTrain}
           </div>
+
           <div className="sdf-windows">
-            <Filter trainsToFilter={ this.state.trains }/>
+
           </div>
           <div className="sdf-windows">
 
@@ -88,5 +94,4 @@ class Tripping extends Component {
   }
 }
 
-//  <Delay /> <Filter />
 export default Tripping;
