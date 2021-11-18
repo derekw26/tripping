@@ -1,14 +1,20 @@
-.searchform {
-  margin: auto;
+.search form {
+  /* margin: auto; */
   display: block;
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  margin-top: 0px;
+  background-color: #4169e1;
+  background-image: url('https://content.api.news/v3/images/bin/0b66a287ad48baae66a2d9aa72643d33');
 }
 
-input {
-  margin-right: 10px;
-  /* margin-bottom: 10px; */
+.search input {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  border-radius: 5px;
 }
+
 
 .text {
   width: 20ch;
@@ -19,7 +25,10 @@ input {
   animation: typing 1s steps(5);
 }
 .stopsInfo {
-  width: 300px;
+  float: right;
+  min-width: 300px;
+  margin-right: 20px;
+  margin-top: 15px;
 }
 
 @keyframes typing {
@@ -27,7 +36,17 @@ input {
 
 }
 
-.table {
-height: 200px;
+.tables {
+float: left;
+min-width: 75%;
+height: 400px;
 overflow: scroll;
+margin-top: 15px;
+margin-left: 15px;
+margin-bottom: 30px;
+background-color: white;
+}
+
+.stopsInfo button {
+  border-radius: 5px;
 }

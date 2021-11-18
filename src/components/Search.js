@@ -86,22 +86,22 @@ class Search extends Component {
           name="origin"
           onChange={ this._handleChange }
           value={ this.state.origin }
-          placeholder="From"
+          placeholder=" Origin"
           />
          <input className="text"
           type="text"
           name="destination"
           onChange={ this._handleChange }
           value={ this.state.destination }
-          placeholder="to"
+          placeholder=" Destination"
           />
           <input
             type="submit"
             value="Search"
           />
         </form>
-        <div class="table">
-        <Table striped bordered hover >
+        <div class="tables">
+        <Table striped bordered hover class="tables">
           <thead>
             <tr>
               <th>Departure Time</th>

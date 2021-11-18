@@ -7,8 +7,8 @@ import TrainMarkerSelected from './TrainMarkerSelected';
 
 const libraries = ['places'];
 const mapContainerStyle = {
-  width: "60%",
-  height: "600px"
+  width: "78%",
+  height: "1070px"
 
 }
 
@@ -23,13 +23,13 @@ const options = {
   zoomControl: true,
   maxZoom: 15,
   minZoom: 11,
-  gestureHandling: 'greedy'
+  // gestureHandling: 'greedy'
 }
 
 const Map = (props) => {
 
   const [activeMarker, setActiveMarker] = useState(null);
-  const [activeMarkers, setActiveMarkers] = useState(null);
+  const [selectedMarker, setSelectedMarker] = useState(null);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -50,11 +50,11 @@ const Map = (props) => {
     setActiveMarker(marker)
   };
 
-  const _handleActiveMarkers = (marker) => {
-    if (marker === activeMarkers) {
+  const _handleSelectedMarker = (marker) => {
+    if (marker === selectedMarker) {
       return;
     }
-    setActiveMarkers(marker)
+    setSelectedMarker(marker)
   };
 
   const selectedTrain = props.trainsToMap.filter((t) => {
@@ -78,9 +78,9 @@ const Map = (props) => {
           options={options}
         >
 
-          <TrainMarkers trainsToMarkers={spareTrains} onSubmit={ _handleActiveMarker } selectedTrain={ activeMarker }/>
+          <TrainMarkers trainsToMarkers={spareTrains} onSubmit={ _handleActiveMarker } selectedTrain={ activeMarker } selectedRoutes={ props.selectedRoutes } />
 
-          <TrainMarkerSelected trainsToMarkers={selectedTrain} onSubmit={ _handleActiveMarkers } selectedTrain={ activeMarkers }/>
+          <TrainMarkerSelected trainsToMarkers={selectedTrain} onSubmit={ _handleSelectedMarker } selectedTrain={ selectedMarker }/>
 
           <TransitLayer
             onLoad={onLoad}
@@ -88,11 +88,5 @@ const Map = (props) => {
         </GoogleMap>
     );
 }
-
-
-
-
-
-
 
 export default Map;
