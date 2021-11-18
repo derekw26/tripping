@@ -13,19 +13,21 @@ class Search extends Component {
 
   constructor() {
     super();
+
     this.state ={
       origin: '' ,
       destination: '',
       id: '',
       trip_id:'',
       stops:[],
-      trains: [],
+      trains: []
     };
     this._handleChange = this._handleChange.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
     this.renderTrain = this.renderTrain.bind(this);
     this._viewTrain = this._viewTrain.bind(this);
   }
+
 
 
   _handleChange(event) {
@@ -35,11 +37,8 @@ class Search extends Component {
 
   _handleSubmit(event) {
     event.preventDefault();
-
-
-      const allTrains = this.props.trainsToSearch     //response.data;
-
-     const filteredTrains = allTrains.filter((train) =>{
+    const allTrains = this.props.trainsToSearch
+    const filteredTrains = allTrains.filter((train) =>{
            if(train.origin.includes(this.state.origin)&&
              train.destination.includes(this.state.destination)) {
                return train;
@@ -56,6 +55,8 @@ class Search extends Component {
    this.props.parentCallback(event.target.id);
 
   }
+
+
 
 
   renderTrain(train) {
@@ -79,23 +80,22 @@ class Search extends Component {
     return (
 
       <div className="search">
-
         <form onSubmit={ this._handleSubmit }>
          <input className="text"
           type="text"
           name="origin"
           onChange={ this._handleChange }
           value={ this.state.origin }
-          placeholder=" Origin"
+          placeholder="Origin"
           />
          <input className="text"
           type="text"
           name="destination"
           onChange={ this._handleChange }
           value={ this.state.destination }
-          placeholder=" Destination"
+          placeholder="Destination"
           />
-          <input
+          <input class="buttons"
             type="submit"
             value="Search"
           />
