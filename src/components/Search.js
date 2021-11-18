@@ -123,8 +123,8 @@ class Search extends Component {
             value="Search"
           />
         </form>
-        <div class="table">
-        <Table striped bordered hover >
+        <div class="tables">
+        <Table striped bordered hover class="tables">
           <thead>
             <tr>
               <th>Departure Time</th>

@@ -4,20 +4,16 @@
   text-align: center;
   padding-bottom: 10px;
   margin-top: 0px;
-  background-color: #BECAFF;
+  background-color: #4169e1;
 }
 
 .search input {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   margin-left: 20px;
   border-radius: 5px;
 }
 
-input {
-  margin-right: 10px;
-  /* margin-bottom: 10px; */
-}
 
 .text {
   width: 20ch;
@@ -28,7 +24,10 @@ input {
   animation: typing 1s steps(5);
 }
 .stopsInfo {
-  width: 300px;
+  float: right;
+  min-width: 300px;
+  margin-right: 20px;
+  margin-top: 15px;
 }
 
 @keyframes typing {
@@ -36,9 +35,12 @@ input {
 
 }
 
-.table {
+.tables {
+float: left;
+min-width: 75%;
 height: 200px;
 overflow: scroll;
-margin-top: 5px;
+margin-top: 15px;
+margin-left: 15px;
 background-color: white;
 }
