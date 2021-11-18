@@ -37,8 +37,6 @@ export default function Filter(props) {
   }
 
   const routesNoSpaces = cleanRoutes().map((route) => route.replace(/\s/g, ''));
-  console.log(routesNoSpaces)
-
 
   return (
     <List className="filter" dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
