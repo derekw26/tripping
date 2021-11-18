@@ -6,11 +6,11 @@ import Delay from './Delay'
 import Weather from './Weather'
 import Footer from './Footer'
 import News from './News'
-import { StyledEngineProvider } from '@mui/material/styles';
-import TableFromSearch from './TableFromSearch';
+import Stops from './Stops'
 import '../css/App.css';
 import '../css/Map.css';
 import axios from 'axios'
+import Table from 'react-bootstrap/Table'
 
 
 
@@ -33,9 +33,10 @@ class Tripping extends Component {
   };
 
 
-  handleCallback(trainID, origin, destination) {
-    this.setState({selectedTrain: trainID, origin: origin, destination: destination})
-     // console.log("THIS IS PRINTING THE TRIPPING COMPONENT" + this.state.selectedTrain, this.state.origin, this.state.destination);
+  handleCallback(tripID) {
+    this.setState({selectedTrain: tripID})
+    // console.log("THIS IS PRINTING THE TRIPPING COMPONENT" + this.state.selectedTrain);
+    // console.log(this.state.filteredTrains);
   }
 
   handleRoutes(selectedRoutes) {
@@ -63,22 +64,31 @@ class Tripping extends Component {
         <header>
           <News />
           <h1 class="mainheading">Transport NSW Open Data - Realtime Dashboard</h1>
-          <h4 class="instructions">Instructions:</h4>
-          <Weather />
+          <div class="weathercontainer">
+            <div class="instructionscontainer">
+              <h4 class="instructions">Important Information:</h4>
+              <p class="instructionsparagraph">
+                <ul>
+                  <li>Data has been sourced from "Open Data Transport NSW".</li>
+                  <li>The map displays realtime train positions in the City of Sydney.</li>
+                  <li>Trains can be filtered and individuallty selected utilising the search feature.</li>
+                  <li>Individual trains on the map can be clicked for further information.</li>
+                </ul>
+              </p>
+            </div>
+            <Weather />
+          </div>
         </header>
-        <hr class="horizontalline"></hr>
+        <hr className="horizontalline"></hr>
         <div className= 'google-map'>
           <Map trainsToMap={ this.state.trains } selectedTrain={ this.state.selectedTrain } selectedRoutes={ this.state.selectedRoutes }/>
         </div>
-        <hr class="horizontalline"></hr>
-            <Filter trainsToFilter={ this.state.trains } routesCallback={ this.handleRoutes } />
+        <hr className="horizontalline"></hr>
+        <Filter trainsToFilter={ this.state.trains } routesCallback={ this.handleRoutes } />
         <aside className="search-delay-filter">
           <div className="sdf-windows">
-          <Search parentCallback={ this.handleCallback } trainsToSearch={ this.state.trains }/>
-          <StyledEngineProvider injectFirst>
-            <TableFromSearch origin={ this.state.origin } destination={ this.state.destination } allTrains={ this.state.trains }/>
-          </StyledEngineProvider>
-         {selectedTrain}
+            <Search parentCallback={ this.handleCallback } trainsToSearch={ this.state.trains }/>
+          <Stops allTrains={ this.state.trains } selectedTrain={this.state.selectedTrain}  />
           </div>
 
           <div className="sdf-windows">

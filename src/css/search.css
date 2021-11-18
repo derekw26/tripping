@@ -18,9 +18,16 @@ input {
 
   animation: typing 1s steps(5);
 }
-
+.stopsInfo {
+  width: 300px;
+}
 
 @keyframes typing {
   from { width: 5ch ;}
 
+}
+
+.table {
+height: 200px;
+overflow: scroll;
 }

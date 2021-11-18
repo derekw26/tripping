@@ -5,3 +5,10 @@
   padding-left: 0px;
   background-color: white;
 }
+
+#map-canvas {
+  height: 70%;
+  width :50%;
+  margin-left:auto;
+  margin-right:auto;
+}
