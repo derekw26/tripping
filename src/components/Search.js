@@ -83,7 +83,7 @@ class Search extends Component {
         <AccordionSummary
           aria-controls="panel1a-content"
           id="panel1a-header"
-        ><button> stops </button>
+        ><button> Stops </button>
          </AccordionSummary>
          <AccordionDetails>
         <ul onClick={ this.renderTrain }>
