@@ -36,7 +36,7 @@ class Search extends Component {
 
   _handleSubmit(event) {
     event.preventDefault();
-    
+
 
       const allTrains = this.props.trainsToSearch     //response.data;
 
@@ -52,32 +52,17 @@ class Search extends Component {
   }
 
   _viewTrain(event) {
-<<<<<<< HEAD
-    event.preventDefault();
-    const trainID = event.target.id;
 
-    this.props.parentCallback(trainID);
-
-=======
    event.preventDefault();
    this.props.parentCallback(event.target.id);
-   console.log(event.target.id);
->>>>>>> 900bb432cdf33bed7deac191518ec1726f978fb3
+
   }
 
 
   renderTrain(train) {
     if (train) {
       return (
-<<<<<<< HEAD
-      <div key= { train.id } >
-      <a id = { train.id } style={{color: "black"}} onClick={ this._viewTrain } > { train.time } from { train.origin } to { train.destination } </a>
-      { this.renderStops(train) }
-      </div>
 
-
-      )
-=======
 
         <tr>
           <td id={train.trip_id} style={{color: "black"}} onClick={ this._viewTrain }>{ train.time }</td>
@@ -86,7 +71,6 @@ class Search extends Component {
         </tr>
 
     );
->>>>>>> 900bb432cdf33bed7deac191518ec1726f978fb3
     }
   };
 
@@ -118,11 +102,8 @@ class Search extends Component {
     return (
 
       <div className="search">
-<<<<<<< HEAD
-        <form className="searchform" onSubmit={ this._handleSubmit }>
-=======
+
         <form onSubmit={ this._handleSubmit }>
->>>>>>> 900bb432cdf33bed7deac191518ec1726f978fb3
          <input className="text"
           type="text"
           name="origin"
@@ -142,11 +123,6 @@ class Search extends Component {
             value="Search"
           />
         </form>
-<<<<<<< HEAD
-
-        <div >
-        { this.state.trains.map(this.renderTrain) }
-=======
         <div class="table">
         <Table striped bordered hover >
           <thead>
@@ -160,7 +136,6 @@ class Search extends Component {
             { this.state.trains.map(this.renderTrain) }
           </tbody>
         </Table>
->>>>>>> 900bb432cdf33bed7deac191518ec1726f978fb3
         </div>
       </div>
     );

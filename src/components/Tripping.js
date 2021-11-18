@@ -6,12 +6,7 @@ import Delay from './Delay'
 import Weather from './Weather'
 import Footer from './Footer'
 import News from './News'
-<<<<<<< HEAD
 import Stops from './Stops'
-import { StyledEngineProvider } from '@mui/material/styles';
-import TableFromSearch from './TableFromSearch';
-=======
->>>>>>> 900bb432cdf33bed7deac191518ec1726f978fb3
 import '../css/App.css';
 import '../css/Map.css';
 import axios from 'axios'
