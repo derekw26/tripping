@@ -14,7 +14,7 @@ const Stops = (props) => {
    props.allTrains.filter((t) => {
    if(t.trip_id == props.selectedTrain) {
      setTimeout(function(){ setSelectedTrain(t) }, 100);
-     console.log(t)
+     return false;
    }
  })
 };
@@ -34,7 +34,7 @@ return(
         <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
           <button> Next Stations </button>
          </AccordionSummary>
-           <AccordionDetails>
+           <AccordionDetails className="details">
             <ul >
               {selectedTrain.stops.map((stop) => <li> { stop } </li> )}
             </ul>

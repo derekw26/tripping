@@ -49,13 +49,17 @@ class Tripping extends Component {
     const fetchTrains = () => {
       axios(SERVER_URL).then((response) => {
         this.setState({trains: response.data});
-        const hours = new Date().toLocaleString()
-        this.setState({curTime: hours});
         setTimeout(fetchTrains, 1000);
       });
 
     };
+    const fetchTime = () => {
+      const hours = new Date().toLocaleString()
+      this.setState({curTime: hours});
+      setTimeout(fetchTime, 200);
+    };
 
+    fetchTime();
     fetchTrains();
   }
 
@@ -86,16 +90,25 @@ class Tripping extends Component {
         <div className= 'google-map'>
           <Map trainsToMap={ this.state.trains } selectedTrain={ this.state.selectedTrain } selectedRoutes={ this.state.selectedRoutes }/>
         </div>
-        <Filter trainsToFilter={ this.state.trains } routesCallback={ this.handleRoutes } />
+        <div className="filterContainer">
+          <Filter trainsToFilter={ this.state.trains } routesCallback={ this.handleRoutes } />
+        </div>
         <hr className="horizontalline"></hr>
         <aside className="search-delay-filter">
           <div className="sdf-windows">
-          <div className="current_time">
+            <div className="current_time">
+              {this.state.curTime}
+            </div>
+
+          <div className="searchAndStops">
+            <Search className="searchs" parentCallback={ this.handleCallback } trainsToSearch={ this.state.trains }/>
+            <div className="stops">
+              <div className="stopsAbsolute">
+                <Stops allTrains={ this.state.trains } selectedTrain={this.state.selectedTrain}  />
+              </div>
+            </div>
           </div>
-            {this.state.curTime}
-            <Search parentCallback={ this.handleCallback } trainsToSearch={ this.state.trains }/>
-          <Stops allTrains={ this.state.trains } selectedTrain={this.state.selectedTrain}  />
-          </div>
+        </div>
 
           <div className="sdf-windows">
 

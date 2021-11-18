@@ -8,10 +8,11 @@
   padding-bottom: 34px;
   position: absolute;
   right: 0;
+  height: 192px;
 }
 
 .syd_weather p {
-  margin-top: 18px;
+  margin: 10px auto;
   font-weight: bold;
 }
 
@@ -22,5 +23,4 @@
 
 .syd_weather h4 {
   font-size: 21px;
-  margin-bottom: 0px;
 }

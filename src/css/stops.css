@@ -9,13 +9,13 @@ button {
   padding-left: 9px;
 }
 
-.stops {
-  float: left;
-  min-width: 75%;
-  height: 300px;
+.details {
+  height: 200px;
   overflow: scroll;
-  margin-top: 15px;
-  margin-right: 15px;
-  margin-bottom: 30px;
-  background-color: white;
+  padding: 0;
+}
+
+.stops {
+  margin-right: 5px;
+  margin-top: -3px;
 }
