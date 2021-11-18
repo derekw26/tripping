@@ -38,9 +38,17 @@ class Search extends Component {
   _handleSubmit(event) {
     event.preventDefault();
     const allTrains = this.props.trainsToSearch
+<<<<<<< HEAD
     const filteredTrains = allTrains.filter((train) =>{
            if(train.origin.includes(this.state.origin) &&
              train.destination.includes(this.state.destination)) {
+=======
+    const capOrigin = this.state.origin.charAt(0).toUpperCase() + this.state.origin.slice(1);
+    const capDestination = this.state.destination.charAt(0).toUpperCase() + this.state.destination.slice(1);
+    const filteredTrains = allTrains.filter((train) =>{
+           if(train.origin.includes(capOrigin || this.state.origin)&&
+             train.destination.includes(capDestination || this.state.destination)) {
+>>>>>>> 08fce4d697e2cf1ff52980536613efd8fc037bf6
                return train;
              }
          }
@@ -53,7 +61,6 @@ class Search extends Component {
 
    event.preventDefault();
    this.props.parentCallback(event.target.id);
-
   }
 
 
@@ -64,7 +71,7 @@ class Search extends Component {
       return (
 
 
-        <tr>
+        <tr key={train.trip_id}>
           <td id={train.trip_id} style={{color: "black"}} onClick={ this._viewTrain }>{ train.time }</td>
           <td id={train.trip_id} style={{color: "black"}} onClick={ this._viewTrain }>{ train.origin }</td>
           <td id={train.trip_id} style={{color: "black"}} onClick={ this._viewTrain }>{ train.destination }</td>
@@ -100,7 +107,7 @@ class Search extends Component {
             value="Search"
           />
         </form>
-        <div class="tables">
+        <div class="tables" class="tableFixHead">
         <Table striped bordered hover class="tables">
           <thead>
             <tr>

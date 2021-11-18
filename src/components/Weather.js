@@ -14,7 +14,7 @@ class Weather extends Component {
 
   componentDidMount() {
 
-    const weatherURL = "http://api.openweathermap.org/data/2.5/weather";
+    const weatherURL = "https://api.openweathermap.org/data/2.5/weather";
     const weatherParams = {
       q: "Sydney",
       units: "metric",

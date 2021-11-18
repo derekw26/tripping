@@ -21,7 +21,7 @@ const TrainMarkers = (props) => {
      return (
        filteredTrains.map((train) => (
        <Marker
-         key={ train.id }
+         key={ train.trip_id }
          icon={{
            url: 'https://techstory.in/wp-content/uploads/2018/12/Where-Is-My-Train.png',
            anchor: new google.maps.Point(17, 46),
@@ -29,14 +29,16 @@ const TrainMarkers = (props) => {
          }}
          position={{lat: train.lat, lng: train.lng}}
          animation={google.maps.Animation.DROP}
-         onClick={() => _handleActiveMarker(train.id)}
+         onClick={() => _handleActiveMarker(train.trip_id)}
        >
-       {props.selectedTrain === train.id ? (
+       {props.selectedTrain === train.trip_id ? (
             <InfoWindow position={{lat: train.lat, lng: train.lng}}>
               <div>
                 {train.time} - {train.origin} to {train.destination}
-
+                <br/>
+                {train.route_id}
               </div>
+
             </InfoWindow>
           ) : null}
        </Marker>

@@ -36,9 +36,11 @@ export default function Filter(props) {
     return sortedRoutes
   }
 
+  const routesNoSpaces = cleanRoutes().map((route) => route.replace(/\s/g, ''));
+
   return (
-    <List class="filter" dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {cleanRoutes().map((route) => {
+    <List className="filter" dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+      {cleanRoutes().map((route, i) => {
         const labelId = `checkbox-list-secondary-label-${route}`;
         return (
           <ListItem
@@ -54,7 +56,12 @@ export default function Filter(props) {
             disablePadding
           >
             <ListItemButton>
-
+              <ListItemAvatar>
+                <Avatar
+                  alt={`${route}`}
+                  src={`${process.env.PUBLIC_URL}/images/train_routes/${ routesNoSpaces[i] }.jpeg`}
+                />
+              </ListItemAvatar>
               <ListItemText id={labelId} primary={`${route}`} />
             </ListItemButton>
           </ListItem>
