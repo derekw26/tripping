@@ -1,13 +1,15 @@
 import React, { Component, useState, useEffect } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow, TransitLayer } from '@react-google-maps/api';
 import mapStyles from './mapStyles';
+import '../css/Map.css'
 import TrainMarkers from './TrainMarkers';
 import TrainMarkerSelected from './TrainMarkerSelected';
 
 const libraries = ['places'];
 const mapContainerStyle = {
-  width: "100%",
+  width: "60%",
   height: "600px"
+
 }
 
 const center = {
@@ -69,6 +71,7 @@ const Map = (props) => {
 
     return(
         <GoogleMap
+          id="map-canvas"
           mapContainerStyle={mapContainerStyle}
           zoom={11}
           center={center}
