@@ -32,7 +32,7 @@ return(
     <div class="stops">
       <Accordion className="accordian">
         <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
-          <button> Next Stations </button>
+          <button> Next Stops </button>
          </AccordionSummary>
            <AccordionDetails className="details">
             <ul >
