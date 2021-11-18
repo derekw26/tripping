@@ -41,7 +41,7 @@ export default function Filter(props) {
 
 
   return (
-    <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <List className="filter" dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {cleanRoutes().map((route, i) => {
         const labelId = `checkbox-list-secondary-label-${route}`;
         return (
@@ -60,9 +60,8 @@ export default function Filter(props) {
             <ListItemButton>
               <ListItemAvatar>
                 <Avatar
-                  alt={`Route ${route}`}
+                  alt={`${route}`}
                   src={`${process.env.PUBLIC_URL}/images/train_routes/${ routesNoSpaces[i] }.jpeg`}
-
                 />
               </ListItemAvatar>
               <ListItemText id={labelId} primary={`${route}`} />

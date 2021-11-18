@@ -24,7 +24,6 @@ class Search extends Component {
     this._handleChange = this._handleChange.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
     this.renderTrain = this.renderTrain.bind(this);
-    this.renderStops = this.renderStops.bind(this);
     this._viewTrain = this._viewTrain.bind(this);
   }
 
@@ -74,29 +73,7 @@ class Search extends Component {
     }
   };
 
-  renderStops(train) {
-    if (train) {
-      return (
 
-        <div key= { train.id } className="stopsInfo" >
-        <Accordion>
-        <AccordionSummary
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        ><button> stops </button>
-         </AccordionSummary>
-         <AccordionDetails>
-        <ul onClick={ this.renderTrain }>
-       { train.stops.map((stop) => <li> { stop } </li> )}
-        </ul>
-        </AccordionDetails>
-        </Accordion>
-
-
-        </div>
-      )
-    }
-  }
   render () {
 
     return (
@@ -109,22 +86,22 @@ class Search extends Component {
           name="origin"
           onChange={ this._handleChange }
           value={ this.state.origin }
-          placeholder="From"
+          placeholder=" Origin"
           />
          <input className="text"
           type="text"
           name="destination"
           onChange={ this._handleChange }
           value={ this.state.destination }
-          placeholder="to"
+          placeholder=" Destination"
           />
           <input
             type="submit"
             value="Search"
           />
         </form>
-        <div class="table">
-        <Table striped bordered hover >
+        <div class="tables">
+        <Table striped bordered hover class="tables">
           <thead>
             <tr>
               <th>Departure Time</th>

@@ -1,14 +1,13 @@
 .google-map {
   margin-left: 0px;
-  margin-right: 0px;
+  margin-right: 40px;
   margin-top: 0px;
   padding-left: 0px;
   background-color: white;
 }
 
 #map-canvas {
-  height: 70%;
-  width :50%;
-  margin-left:auto;
-  margin-right:auto;
+  /* height: 70%;
+  width :50%; */
+  float:right;
 }

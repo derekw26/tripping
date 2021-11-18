@@ -11,7 +11,7 @@ class Footer extends Component {
   				<h3>Transport N.S.W. Open Data: <span>Realtime Dashboard</span></h3>
 
   				<p class="footer-links">
-  					<a href="#">Home</a>
+  					<a href="/">Home</a>
   			    |
   					<a href="https://github.com/derekw26/tripping">Github-Client</a>
   					|

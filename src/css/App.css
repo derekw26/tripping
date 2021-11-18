@@ -22,7 +22,7 @@ header {
   margin-bottom: 30px;
   margin-top: 10px;
   padding-top: 8px;
-  background-color: #5E7BFF;
+  background-color: #4169e1;
 }
 
 .instructions {
@@ -91,4 +91,15 @@ li {
 
 .sdf-windows {
   padding: 0px;
+}
+
+.accordian {
+  float: right;
+  width: 20%;
+  margin-right: 25px;
+  margin-top: 20px;
+}
+
+.accordian button {
+  border-radius: 5px;
 }
