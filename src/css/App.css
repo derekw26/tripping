@@ -121,14 +121,14 @@ heading {
   display: flex;
 }
 
-.stops {
+.searchAndStops {
   position: relative;
 }
 
 .stopsAbsolute {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 90px;
+  left: 1300px;
   width: 100%;
 }
 

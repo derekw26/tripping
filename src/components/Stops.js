@@ -4,7 +4,9 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import axios from 'axios';
 import '../css/stops.css';
-import Button from 'react-bootstrap/Button'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
+
 
 const Stops = (props) => {
   const [selectedTrain, setSelectedTrain] = useState({stops:["Select a trip"]});
@@ -30,16 +32,11 @@ const Stops = (props) => {
 return(
 
     <div class="stops">
-      <Accordion className="accordian">
-        <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
-          <button> Next Stops </button>
-         </AccordionSummary>
-           <AccordionDetails className="details">
-            <ul >
-              {selectedTrain.stops.map((stop) => <li> { stop } </li> )}
-            </ul>
-          </AccordionDetails>
-      </Accordion>
+      <DropdownButton id="dropdown-item-button" title="Next Stops">
+        <div className="details">
+          {selectedTrain.stops.map((stop) =>  <Dropdown.ItemText> { stop } </Dropdown.ItemText> )}
+        </div>
+      </DropdownButton>
     </div>
   );
 };

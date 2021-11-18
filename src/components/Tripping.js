@@ -11,7 +11,7 @@ import '../css/App.css';
 import '../css/Map.css';
 import axios from 'axios'
 import Table from 'react-bootstrap/Table'
-
+import SplitButton from 'react-bootstrap/SplitButton'
 
 
 const SERVER_URL = 'https://young-escarpment-93961.herokuapp.com/';
