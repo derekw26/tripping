@@ -38,9 +38,11 @@ class Search extends Component {
   _handleSubmit(event) {
     event.preventDefault();
     const allTrains = this.props.trainsToSearch
+    const capOrigin = this.state.origin.charAt(0).toUpperCase() + this.state.origin.slice(1);
+    const capDestination = this.state.destination.charAt(0).toUpperCase() + this.state.destination.slice(1);
     const filteredTrains = allTrains.filter((train) =>{
-           if(train.origin.includes(this.state.origin)&&
-             train.destination.includes(this.state.destination)) {
+           if(train.origin.includes(capOrigin || this.state.origin)&&
+             train.destination.includes(capDestination || this.state.destination)) {
                return train;
              }
          }
