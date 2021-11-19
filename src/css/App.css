@@ -121,15 +121,15 @@ heading {
   display: flex;
 }
 
-.stops {
+.searchAndStops {
   position: relative;
 }
 
 .stopsAbsolute {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 90px;
+  left: 1220px;
+  /* width: 100%; */
 }
 
 .mapAndFilter {
