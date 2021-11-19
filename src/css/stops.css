@@ -21,3 +21,7 @@ button {
   margin-right: 5px;
   margin-top: -3px;
 }
+
+#dropdown-item-button {
+  background-color: #4169e1;
+}
