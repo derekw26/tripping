@@ -128,8 +128,8 @@ heading {
 .stopsAbsolute {
   position: absolute;
   top: 90px;
-  right: -1290px;
-  width: 100%;
+  left: 1220px;
+  /* width: 100%; */
 }
 
 .mapAndFilter {
