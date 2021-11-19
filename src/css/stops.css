@@ -14,6 +14,7 @@ button {
   height: 200px;
   overflow: scroll;
   padding: 0;
+  width: 100%;
 }
 
 
@@ -24,4 +25,8 @@ button {
 
 #dropdown-item-button {
   background-color: #4169e1;
+}
+
+.stopsInfo {
+  flex-wrap: wrap;
 }

@@ -34,7 +34,7 @@ return(
     <div class="stops">
       <DropdownButton id="dropdown-item-button" title="Next Stops">
         <div className="details">
-          {selectedTrain.stops.map((stop) =>  <Dropdown.ItemText> { stop } </Dropdown.ItemText> )}
+          {selectedTrain.stops.map((stop) =>  <Dropdown.ItemText className="stopsInfo"> { stop } </Dropdown.ItemText> )}
         </div>
       </DropdownButton>
     </div>
